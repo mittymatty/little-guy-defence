@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ci6lib8t57l3k"]
+
+[ext_resource type="Texture2D" uid="uid://cur2g8yo18jiu" path="res://assets/BlackBackground.png" id="1_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://dlvawo4t42v30" path="res://scenes/player.tscn" id="2_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cl2o5gld4jcps" path="res://scenes/simple_enemy.tscn" id="3_w8frs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
+size = Vector2(13.058441, 20)
+
+[node name="Level" type="Node2D" unique_id=1049619043]
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=2028888874]
+position = Vector2(823.50006, 607)
+scale = Vector2(222.50002, 5.000004)
+texture = ExtResource("1_w7c3h")
+
+[node name="Thing" type="Sprite2D" parent="." unique_id=1685877450]
+position = Vector2(749, 582.5)
+scale = Vector2(13.666669, 8.250024)
+texture = ExtResource("1_w7c3h")
+
+[node name="Thing2" type="Sprite2D" parent="." unique_id=910522888]
+position = Vector2(599, 598.00006)
+scale = Vector2(13.666669, 8.250024)
+texture = ExtResource("1_w7c3h")
+
+[node name="Thing3" type="Sprite2D" parent="." unique_id=910409833]
+position = Vector2(996, 584)
+scale = Vector2(13.666669, 8.250024)
+texture = ExtResource("1_w7c3h")
+
+[node name="player" parent="." unique_id=1133307836 instance=ExtResource("2_w8frs")]
+position = Vector2(502, 536)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1304932429]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=629974813]
+position = Vector2(820.3333, 607.00006)
+rotation = -3.1415925
+scale = Vector2(102.666664, 1)
+shape = SubResource("RectangleShape2D_w7c3h")
+
+[node name="EnemyBase" parent="." unique_id=733239099 node_paths=PackedStringArray("player") instance=ExtResource("3_w8frs")]
+position = Vector2(814, 520)
+player = NodePath("../player")

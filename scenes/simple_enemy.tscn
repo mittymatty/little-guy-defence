@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cl2o5gld4jcps"]
+
+[ext_resource type="PackedScene" uid="uid://c60kihk36ttm5" path="res://scenes/enemy_base.tscn" id="1_xtmrb"]
+[ext_resource type="Texture2D" uid="uid://b3xt6f73gcch1" path="res://icon.svg" id="2_0j3ol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esqeu"]
+radius = 16.03122
+
+[node name="EnemyBase" unique_id=733239099 node_paths=PackedStringArray("animation_component") instance=ExtResource("1_xtmrb")]
+animation_component = NodePath("Components/AnimationComponent")
+
+[node name="Icon" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="0" unique_id=407896651]
+modulate = Color(1, 0.0061505805, 0.047409892, 1)
+position = Vector2(-1, -2)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_0j3ol")
+
+[node name="MovementComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="1" unique_id=275666189]
+speed = 10.0
+
+[node name="TrackerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="2" unique_id=1220211303]
+start_tracking_distance = 500.0
+
+[node name="HealthBar" parent="." index="2" unique_id=1492475502]
+offset_top = -30.0
+offset_bottom = -28.0
+always_visible = true
+
+[node name="Collision" parent="." index="3" unique_id=1302760824]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_esqeu")

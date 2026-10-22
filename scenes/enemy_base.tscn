@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c60kihk36ttm5"]
+
+[ext_resource type="Script" uid="uid://d2my4umrs3pxn" path="res://enemy_base.gd" id="1_xuskm"]
+[ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="2_3ysdf"]
+[ext_resource type="PackedScene" uid="uid://cy1034rgijxmi" path="res://scenes/components/movement_component.tscn" id="3_esqeu"]
+[ext_resource type="PackedScene" uid="uid://ddnaujh8g10oe" path="res://scenes/components/tracker_component.tscn" id="4_yt5vg"]
+[ext_resource type="PackedScene" uid="uid://vqjy0rat2u5d" path="res://scenes/components/gravity_component.tscn" id="5_7t5mr"]
+[ext_resource type="PackedScene" uid="uid://cgou2ah3j44ta" path="res://scenes/components/jump_component.tscn" id="6_esqeu"]
+[ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/health_bar.tscn" id="6_y8vm1"]
+[ext_resource type="PackedScene" uid="uid://dolv0ui3en5r3" path="res://scenes/components/jump_detector_component.tscn" id="7_yt5vg"]
+[ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="8_yt5vg"]
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=733239099 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "health_component", "jump_component", "jump_detector_component", "animation_component")]
+script = ExtResource("1_xuskm")
+movement_component = NodePath("Components/MovementComponent")
+gravity_component = NodePath("Components/GravityComponent")
+tracker_component = NodePath("Components/TrackerComponent")
+health_component = NodePath("Components/HealthComponent")
+jump_component = NodePath("Components/JumpComponent")
+jump_detector_component = NodePath("Components/JumpDetectorComponent")
+animation_component = NodePath("Components/AnimationComponent")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=434325312]
+
+[node name="Components" type="Node" parent="." unique_id=887696548]
+
+[node name="HealthComponent" parent="Components" unique_id=1130167078 instance=ExtResource("2_3ysdf")]
+
+[node name="MovementComponent" parent="Components" unique_id=275666189 instance=ExtResource("3_esqeu")]
+
+[node name="TrackerComponent" parent="Components" unique_id=1220211303 node_paths=PackedStringArray("tracker") instance=ExtResource("4_yt5vg")]
+tracker = NodePath("../..")
+
+[node name="GravityComponent" parent="Components" unique_id=827299611 instance=ExtResource("5_7t5mr")]
+
+[node name="JumpComponent" parent="Components" unique_id=466440326 instance=ExtResource("6_esqeu")]
+
+[node name="JumpDetectorComponent" parent="Components" unique_id=1174977127 node_paths=PackedStringArray("trigger_raycast") instance=ExtResource("7_yt5vg")]
+trigger_raycast = NodePath("../../Raycasts/JumpTrigger")
+
+[node name="AnimationComponent" parent="Components" unique_id=222523302 node_paths=PackedStringArray("nodes_to_flip") instance=ExtResource("8_yt5vg")]
+nodes_to_flip = [NodePath("../../Visuals"), NodePath("../../Raycasts")]
+
+[node name="HealthBar" parent="." unique_id=1492475502 node_paths=PackedStringArray("body") instance=ExtResource("6_y8vm1")]
+body = NodePath("..")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1302760824]
+
+[node name="Raycasts" type="Node2D" parent="." unique_id=840407662]
+
+[node name="JumpTrigger" type="RayCast2D" parent="Raycasts" unique_id=1431579325]
+target_position = Vector2(20, 0)
