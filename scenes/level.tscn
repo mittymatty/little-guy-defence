@@ -49,3 +49,7 @@ shape = SubResource("RectangleShape2D_w7c3h")
 [node name="AnotherEnemy" parent="." unique_id=1974758763 node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
 position = Vector2(222, 528)
 player = NodePath("../player")
+
+[node name="AnotherEnemy2" parent="." unique_id=733239099 node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+position = Vector2(285, 541)
+player = NodePath("../player")

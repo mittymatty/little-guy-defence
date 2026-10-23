@@ -9,9 +9,9 @@
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6qa7"]
-size = Vector2(20, 18)
+size = Vector2(36, 36)
 
-[node name="AnotherEnemy" unique_id=733239099 node_paths=PackedStringArray("touch_damager_component") instance=ExtResource("1_dg3yh")]
+[node name="BasicEnemy" unique_id=733239099 node_paths=PackedStringArray("touch_damager_component") instance=ExtResource("1_dg3yh")]
 script = ExtResource("2_a6qa7")
 touch_damager_component = NodePath("Components/TouchDamagerComponent")
 
@@ -24,6 +24,7 @@ texture = ExtResource("2_p6ar2")
 start_tracking_distance = 500.0
 
 [node name="TouchDamagerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="7" unique_id=934853369 node_paths=PackedStringArray("hazard_owner", "attack_box", "attack_sound") instance=ExtResource("3_p6ar2")]
+knockback = Vector2(150, -50)
 hazard_owner = NodePath("../..")
 attack_box = NodePath("../../TouchDamageBox")
 attack_sound = NodePath("../../Sounds/AudioStreamPlayer2D")
