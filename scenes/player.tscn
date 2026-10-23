@@ -1,55 +1,193 @@
 [gd_scene format=3 uid="uid://dlvawo4t42v30"]
 
-[ext_resource type="PackedScene" uid="uid://7slsrx602p7n" path="res://scenes/game_ui.tscn" id="1_dqkch"]
-[ext_resource type="PackedScene" uid="uid://cwvbinbhvljq5" path="res://scenes/another_enemy_test.tscn" id="3_qlg0r"]
-[ext_resource type="PackedScene" uid="uid://dlvawo4t42v30" path="res://scenes/player.tscn" id="4_tuyoq"]
+[ext_resource type="Script" uid="uid://cldgyl7sb7pnn" path="res://scripts/player.gd" id="1_g2els"]
+<<<<<<< Updated upstream
+[ext_resource type="Texture2D" uid="uid://da8yohu5i4tk8" path="res://assets/toy soldier.png" id="2_3v2ag"]
+=======
+[ext_resource type="Texture2D" uid="uid://cdmljsyvg0oqu" path="res://assets/front soldier.png" id="2_3v2ag"]
+>>>>>>> Stashed changes
+[ext_resource type="PackedScene" uid="uid://ba7t6qyncp8sv" path="res://scenes/components/advanced_jump_component.tscn" id="3_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://cy1034rgijxmi" path="res://scenes/components/movement_component.tscn" id="4_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bmfvsuo8g21cg" path="res://scenes/components/input_component.tscn" id="5_fjrip"]
+[ext_resource type="PackedScene" uid="uid://cy5ppw87jnmn8" path="res://scenes/components/gun_component.tscn" id="6_smehm"]
+[ext_resource type="PackedScene" uid="uid://vqjy0rat2u5d" path="res://scenes/components/gravity_component.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://dqoeirelb61ah" path="res://scenes/bullet.tscn" id="7_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://cur2g8yo18jiu" path="res://assets/BlackBackground.png" id="7_fjrip"]
+[ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="7_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="9_3v2ag"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
-size = Vector2(13.058441, 20)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
+radius = 5.0
 
-[node name="Level" type="Node2D" unique_id=1049619043]
+[sub_resource type="Animation" id="Animation_d2wvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044881245]
+[sub_resource type="Animation" id="Animation_jej6c"]
+resource_name = "reset"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
-[node name="Game UI" parent="CanvasLayer" unique_id=1426189323 node_paths=PackedStringArray("player") instance=ExtResource("1_dqkch")]
-player = NodePath("../../player")
+[sub_resource type="Animation" id="Animation_3v2ag"]
+resource_name = "wobble"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Body:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.08726646259971647, -0.08726646259971647]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(0, 0), Vector2(0, -2)]
+}
 
-[node name="Floor" type="Sprite2D" parent="." unique_id=2028888874]
-position = Vector2(823.50006, 607)
-scale = Vector2(222.50002, 5.000004)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jej6c"]
+_data = {
+&"RESET": SubResource("Animation_d2wvv"),
+&"reset": SubResource("Animation_jej6c"),
+&"wobble": SubResource("Animation_3v2ag")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy6xw"]
+bg_color = Color(0.6, 0.6, 0.6, 0.3019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2wvv"]
+bg_color = Color(0.6748146, 0.67481464, 0.6748144, 1)
+
+[node name="player" type="CharacterBody2D" unique_id=1133307836 node_paths=PackedStringArray("movement_component", "jump_component", "input_component", "gravity_component", "gun_component", "health_component", "animation_component")]
+collision_layer = 2
+script = ExtResource("1_g2els")
+movement_component = NodePath("Components/MovementComponent")
+jump_component = NodePath("Components/AdvancedJumpComponent")
+input_component = NodePath("Components/InputComponent")
+gravity_component = NodePath("Components/GravityComponent")
+gun_component = NodePath("Components/GunComponent")
+health_component = NodePath("Components/HealthComponent")
+animation_component = NodePath("Components/AnimationComponent")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
+
+[node name="Gun" type="Sprite2D" parent="Visuals" unique_id=1210393260]
+z_index = 1
+position = Vector2(0, -6)
 texture = ExtResource("7_fjrip")
+centered = false
+offset = Vector2(0, -2)
 
-[node name="Thing" type="Sprite2D" parent="." unique_id=1685877450]
-position = Vector2(749, 582.5)
-scale = Vector2(13.666669, 8.250024)
-texture = ExtResource("7_fjrip")
+[node name="Muzzle" type="Marker2D" parent="Visuals/Gun" unique_id=1058219260]
+position = Vector2(5.7599998, -3.973643e-08)
 
-[node name="Thing2" type="Sprite2D" parent="." unique_id=910522888]
-position = Vector2(599, 598.00006)
-scale = Vector2(13.666669, 8.250024)
-texture = ExtResource("7_fjrip")
+[node name="Body" type="Sprite2D" parent="Visuals" unique_id=353892764]
+<<<<<<< Updated upstream
+texture = ExtResource("2_3v2ag")
+hframes = 2
+vframes = 2
+=======
+scale = Vector2(2, 2)
+texture = ExtResource("2_3v2ag")
+>>>>>>> Stashed changes
 
-[node name="Thing3" type="Sprite2D" parent="." unique_id=910409833]
-position = Vector2(996, 584)
-scale = Vector2(13.666669, 8.250024)
-texture = ExtResource("7_fjrip")
+[node name="Components" type="Node" parent="." unique_id=1626316903]
 
-[node name="player" parent="." unique_id=1133307836 instance=ExtResource("4_tuyoq")]
-position = Vector2(502, 536)
+[node name="AdvancedJumpComponent" parent="Components" unique_id=2065928452 node_paths=PackedStringArray("jump_sound", "land_sound") instance=ExtResource("3_qlg0r")]
+jump_sound = NodePath("../../Sounds/Land")
+land_sound = NodePath("../../Sounds/Land")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1304932429]
+[node name="MovementComponent" parent="Components" unique_id=275666189 instance=ExtResource("4_tuyoq")]
+speed = 120.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=629974813]
-position = Vector2(820.3333, 607.00006)
-rotation = -3.1415925
-scale = Vector2(102.666664, 1)
-shape = SubResource("RectangleShape2D_w7c3h")
+[node name="InputComponent" parent="Components" unique_id=2036460052 instance=ExtResource("5_fjrip")]
 
-[node name="BasicEnemy" parent="." unique_id=1974758763 node_paths=PackedStringArray("player") instance=ExtResource("3_qlg0r")]
-position = Vector2(222, 528)
-player = NodePath("../player")
+[node name="GravityComponent" parent="Components" unique_id=827299611 instance=ExtResource("6_tuyoq")]
 
-[node name="BasicEnemy2" parent="." unique_id=733239099 node_paths=PackedStringArray("player") instance=ExtResource("3_qlg0r")]
-position = Vector2(285, 541)
-player = NodePath("../player")
+[node name="GunComponent" parent="Components" unique_id=769225365 node_paths=PackedStringArray("gun_visuals", "muzzle") instance=ExtResource("6_smehm")]
+bullet = ExtResource("7_d2wvv")
+gun_visuals = NodePath("../../Visuals/Gun")
+muzzle = NodePath("../../Visuals/Gun/Muzzle")
+
+[node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body") instance=ExtResource("7_ur7pv")]
+body = NodePath("../..")
+
+[node name="AnimationComponent" parent="Components" unique_id=222523302 node_paths=PackedStringArray("nodes_to_flip") instance=ExtResource("9_3v2ag")]
+nodes_to_flip = [NodePath("../../Visuals")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1363302001]
+<<<<<<< Updated upstream
+shape = SubResource("CapsuleShape2D_d2wvv")
+=======
+position = Vector2(1, -1.9073486e-06)
+scale = Vector2(1, 1.6400003)
+shape = SubResource("CircleShape2D_xrivr")
+>>>>>>> Stashed changes
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=799997658]
+position = Vector2(0, -70)
+zoom = Vector2(1.75, 1.75)
+
+[node name="Sounds" type="Node2D" parent="." unique_id=1689226807]
+
+[node name="Land" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1104987725]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1429232923]
+libraries/ = SubResource("AnimationLibrary_jej6c")
+
+[node name="ReloadBar" type="ProgressBar" parent="." unique_id=783981462]
+visible = false
+offset_left = -11.0
+offset_top = -24.0
+offset_right = 11.0
+offset_bottom = -20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hy6xw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d2wvv")
+value = 50.0
+show_percentage = false
