@@ -160,6 +160,7 @@ regen_per_second = 8.0
 nodes_to_flip = [NodePath("../../Visuals")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1363302001]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_d2wvv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=799997658]

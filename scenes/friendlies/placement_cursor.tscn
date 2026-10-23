@@ -24,6 +24,7 @@ position = Vector2(0, -15)
 texture = ExtResource("2_ai2in")
 
 [node name="Validator" type="RayCast2D" parent="." unique_id=1974776206]
+target_position = Vector2(0, 70)
 collision_mask = 33
 
 [node name="RoofCheck" type="RayCast2D" parent="." unique_id=814876573]

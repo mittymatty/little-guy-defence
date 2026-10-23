@@ -4,8 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://l2qod4amlhie" path="res://assets/box_9patch_click.png" id="2_6e811"]
 [ext_resource type="Texture2D" uid="uid://isi48lc8g4ou" path="res://assets/front soldier.png" id="2_h40kk"]
 [ext_resource type="Texture2D" uid="uid://deojfiamdref8" path="res://assets/box_9patch_hover.png" id="3_27umi"]
+[ext_resource type="Texture2D" uid="uid://c3yc434c1kxo8" path="res://assets/blocks.png" id="5_wvsrj"]
+[ext_resource type="FontFile" uid="uid://bh7q5xrw6mw0i" path="res://assets/fonts/YOSIA-SCRIBBLE-TIGHT.ttf" id="6_tf3mv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hy6xw"]
+font = ExtResource("6_tf3mv")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_c0upb"]
+font = ExtResource("6_tf3mv")
+font_size = 40
 
 [node name="TroopButton" type="TextureButton" unique_id=424994559]
+custom_minimum_size = Vector2(120, 120)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -13,10 +24,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
 offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_right = 100.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 texture_normal = ExtResource("1_6e811")
 texture_pressed = ExtResource("2_6e811")
 texture_hover = ExtResource("3_27umi")
@@ -30,3 +42,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_h40kk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1028997148]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -17.0
+offset_right = 100.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1225921640]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 10)
+texture = ExtResource("5_wvsrj")
+expand_mode = 2
+
+[node name="Price" type="Label" parent="HBoxContainer" unique_id=614574483]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 90
+text = "2"
+label_settings = SubResource("LabelSettings_hy6xw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="." unique_id=1323786095]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = -82.0
+offset_right = 107.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 15)
+theme_override_font_sizes/font_size = 90
+text = "Pistol"
+label_settings = SubResource("LabelSettings_c0upb")
+horizontal_alignment = 1
+vertical_alignment = 1
