@@ -1,37 +1,69 @@
 [gd_scene format=3 uid="uid://dwoarnchrrpbi"]
 
 [ext_resource type="PackedScene" uid="uid://dlvawo4t42v30" path="res://scenes/player.tscn" id="1_iw0c1"]
+[ext_resource type="Texture2D" uid="uid://bjgdid8u5lg2d" path="res://assets/table.png" id="2_tjgix"]
 [ext_resource type="Texture2D" uid="uid://d3irgr4f16p8h" path="res://assets/Untitled design (2).png" id="2_ui2oe"]
 [ext_resource type="Texture2D" uid="uid://bio2ck3bpsm53" path="res://assets/Untitled_design__3_-removebg-preview.png" id="3_o412v"]
 [ext_resource type="Texture2D" uid="uid://qjdxpoawdt2m" path="res://assets/Untitled_design__4_-removebg-preview.png" id="4_6d2g4"]
 [ext_resource type="Texture2D" uid="uid://bpjg3utif8i0t" path="res://assets/Untitled_design__1_-removebg-preview.png" id="5_6d2g4"]
 [ext_resource type="Texture2D" uid="uid://dfcganbesy6m0" path="res://assets/Screenshot_2026-10-24_092840-removebg-preview.png" id="6_885xx"]
+[ext_resource type="PackedScene" uid="uid://7slsrx602p7n" path="res://scenes/ui/game_ui.tscn" id="8_xunnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(940, 20)
+size = Vector2(1748, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(126, 789)
 
 [node name="Node2D" type="Node2D" unique_id=602288621]
+
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=1170981993]
+
+[node name="Game UI" parent="GameUI" unique_id=1426189323 node_paths=PackedStringArray("player") instance=ExtResource("8_xunnl")]
+player = NodePath("")
 
 [node name="player" parent="." unique_id=1133307836 instance=ExtResource("1_iw0c1")]
 position = Vector2(299, 206)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1307144010]
 
+[node name="Table" type="Sprite2D" parent="StaticBody2D" unique_id=579425586]
+z_index = -1
+position = Vector2(507.99994, 276)
+scale = Vector2(0.70096153, 0.70096153)
+texture = ExtResource("2_tjgix")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1540835664]
-position = Vector2(527, 388)
+position = Vector2(502, 395)
 shape = SubResource("RectangleShape2D_xrivr")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1210268500]
-offset_left = 59.0
-offset_top = 371.0
-offset_right = 991.0
-offset_bottom = 396.0
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=515842285]
+offset_left = -422.0
+offset_top = -102.0
+offset_right = -348.0
+offset_bottom = 591.0
+color = Color(0.69803923, 0.63529414, 0.53333336, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D" unique_id=2146554954]
+offset_left = 1336.0
+offset_top = -94.0
+offset_right = 1410.0
+offset_bottom = 599.0
+color = Color(0.69803923, 0.63529414, 0.53333336, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=693979252]
+position = Vector2(-411, 297)
+shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1781556380]
+position = Vector2(1404, 288)
+shape = SubResource("RectangleShape2D_1vivr")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=780087097]
 scroll_scale = Vector2(0.3, 0.3)
 
 [node name="UntitledDesign(2)" type="Sprite2D" parent="Parallax2D" unique_id=1585891003]
-z_index = -2
+z_index = -3
 position = Vector2(-185.99997, -146)
 scale = Vector2(1.2784092, 1.2784092)
 texture = ExtResource("2_ui2oe")
@@ -48,14 +80,14 @@ texture = ExtResource("3_o412v")
 centered = false
 
 [node name="UntitledDesign4RemovebgPreview" type="Sprite2D" parent="Parallax2D2" unique_id=2045472010]
-z_index = -1
+z_index = -2
 position = Vector2(-210.00002, 140)
 scale = Vector2(1.4478765, 1.4478766)
 texture = ExtResource("4_6d2g4")
 centered = false
 
 [node name="Screenshot20261024092840RemovebgPreview" type="Sprite2D" parent="Parallax2D2" unique_id=2098770876]
-z_index = -2
+z_index = -3
 position = Vector2(442.00003, 213)
 scale = Vector2(2.7776244, 2.7272727)
 texture = ExtResource("6_885xx")
