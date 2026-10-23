@@ -128,6 +128,10 @@ offset = Vector2(-18, -16)
 [node name="Muzzle" type="Marker2D" parent="Visuals/Gun" unique_id=1058219260]
 position = Vector2(12, -0.5)
 
+[node name="HealthRegenDelay" type="Timer" parent="." unique_id=576344614]
+wait_time = 4.0
+one_shot = true
+
 [node name="Components" type="Node" parent="." unique_id=1626316903]
 
 [node name="AdvancedJumpComponent" parent="Components" unique_id=2065928452 node_paths=PackedStringArray("jump_sound", "land_sound") instance=ExtResource("3_qlg0r")]
@@ -146,9 +150,11 @@ bullet = ExtResource("7_d2wvv")
 gun_visuals = NodePath("../../Visuals/Gun")
 muzzle = NodePath("../../Visuals/Gun/Muzzle")
 
-[node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body") instance=ExtResource("7_ur7pv")]
+[node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body", "regen_delay_timer") instance=ExtResource("7_ur7pv")]
 i_time = true
 body = NodePath("../..")
+regen_delay_timer = NodePath("../../HealthRegenDelay")
+regen_per_second = 8.0
 
 [node name="AnimationComponent" parent="Components" unique_id=222523302 node_paths=PackedStringArray("nodes_to_flip") instance=ExtResource("9_3v2ag")]
 nodes_to_flip = [NodePath("../../Visuals")]

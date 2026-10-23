@@ -1,9 +1,9 @@
 extends Control
 @export var player: Player
-@onready var health_bar: HealthBar = $MarginContainer/VBoxContainer2/HealthBar
+@onready var health_bar: HealthBar = $Vitals/VBoxContainer2/HealthBar
 @onready var gun_component: GunComponent = player.gun_component
 
-@onready var ammo_counter: Label = $MarginContainer/VBoxContainer/AmmoCounter
+@onready var ammo_counter: Label = $Vitals/VBoxContainer/AmmoCounter
 
 func on_ammo_changed () -> void:
 	ammo_counter.text = "Ammo: " + str(gun_component.ammo) + "/" + str(gun_component.max_ammo)
