@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://7slsrx602p7n"]
 
 [ext_resource type="Script" uid="uid://drxiayebo8v1s" path="res://scripts/game_ui.gd" id="1_u001w"]
-[ext_resource type="FontFile" uid="uid://b8ax26brwlcg6" path="res://assets/toy-toy-toon/Toy Toy Toon.ttf" id="2_rns2u"]
 [ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/health_bar.tscn" id="2_u001w"]
+[ext_resource type="FontFile" uid="uid://dn1dl7h18dgue" path="res://assets/toy-toy-toon/YOSIA-SCRIBBLE.ttf" id="2_u2dgd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u001w"]
-font = ExtResource("2_rns2u")
+font = ExtResource("2_u2dgd")
 font_size = 30
 
 [node name="Game UI" type="Control" unique_id=1426189323]
