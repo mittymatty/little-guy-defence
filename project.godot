@@ -15,6 +15,10 @@ run/main_scene="uid://ci6lib8t57l3k"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Settings="*uid://b5ay7rurrb1fl"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -64,6 +68,7 @@ reload={
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="player_bullet"
 2d_physics/layer_5="enemy_bullet"
+2d_physics/layer_6="base"
 
 [physics]
 

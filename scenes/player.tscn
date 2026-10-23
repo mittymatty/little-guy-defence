@@ -111,20 +111,20 @@ gun_component = NodePath("Components/GunComponent")
 health_component = NodePath("Components/HealthComponent")
 animation_component = NodePath("Components/AnimationComponent")
 
-[node name="Gun" type="Sprite2D" parent="." unique_id=1210393260]
+[node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
+
+[node name="Body" type="Sprite2D" parent="Visuals" unique_id=353892764]
+texture = ExtResource("3_d2wvv")
+
+[node name="Gun" type="Sprite2D" parent="Visuals" unique_id=1210393260]
 z_index = 1
 position = Vector2(0, -2)
 texture = ExtResource("2_d2wvv")
 centered = false
 offset = Vector2(-18, -16)
 
-[node name="Muzzle" type="Marker2D" parent="Gun" unique_id=1058219260]
+[node name="Muzzle" type="Marker2D" parent="Visuals/Gun" unique_id=1058219260]
 position = Vector2(12, -0.5)
-
-[node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
-
-[node name="Body" type="Sprite2D" parent="Visuals" unique_id=353892764]
-texture = ExtResource("3_d2wvv")
 
 [node name="Components" type="Node" parent="." unique_id=1626316903]
 
@@ -141,8 +141,8 @@ speed = 120.0
 
 [node name="GunComponent" parent="Components" unique_id=769225365 node_paths=PackedStringArray("gun_visuals", "muzzle") instance=ExtResource("6_smehm")]
 bullet = ExtResource("7_d2wvv")
-gun_visuals = NodePath("../../Gun")
-muzzle = NodePath("../../Gun/Muzzle")
+gun_visuals = NodePath("../../Visuals/Gun")
+muzzle = NodePath("../../Visuals/Gun/Muzzle")
 
 [node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body") instance=ExtResource("7_ur7pv")]
 body = NodePath("../..")

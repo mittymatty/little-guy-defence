@@ -9,7 +9,7 @@ class_name Player extends CharacterBody2D
 @export var health_component: HealthComponent
 @export var animation_component: AnimationComponent
 
-@onready var gun: Sprite2D = $Gun
+@onready var gun: Sprite2D = $Visuals/Gun
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var reload_bar: ProgressBar = $ReloadBar
 
@@ -31,7 +31,7 @@ func _ready() -> void:
 	gun_component.reload.connect(on_gun_reload)
 
 func animate () -> void:
-	animation_component.handle_horizontal_flip(input_component.input_horizontal,false)
+	animation_component.handle_horizontal_flip(get_global_mouse_position().x - global_position.x,false)
 	if is_on_floor_only() and abs(velocity.x) > 0:
 		animation_player.play("wobble")
 	elif animation_player.is_playing() and animation_player.current_animation != "reset":
