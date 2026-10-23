@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dlvawo4t42v30"]
 
 [ext_resource type="Script" uid="uid://cldgyl7sb7pnn" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://da8yohu5i4tk8" path="res://assets/toy soldier.png" id="2_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://14o852vqmhpb" path="res://assets/gun.png" id="2_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://isi48lc8g4ou" path="res://assets/front soldier.png" id="3_d2wvv"]
 [ext_resource type="PackedScene" uid="uid://ba7t6qyncp8sv" path="res://scenes/components/advanced_jump_component.tscn" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://cy1034rgijxmi" path="res://scenes/components/movement_component.tscn" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bmfvsuo8g21cg" path="res://scenes/components/input_component.tscn" id="5_fjrip"]
 [ext_resource type="PackedScene" uid="uid://cy5ppw87jnmn8" path="res://scenes/components/gun_component.tscn" id="6_smehm"]
 [ext_resource type="PackedScene" uid="uid://vqjy0rat2u5d" path="res://scenes/components/gravity_component.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://dqoeirelb61ah" path="res://scenes/bullet.tscn" id="7_d2wvv"]
-[ext_resource type="Texture2D" uid="uid://cur2g8yo18jiu" path="res://assets/BlackBackground.png" id="7_fjrip"]
 [ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="7_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="9_3v2ag"]
 
@@ -111,22 +111,20 @@ gun_component = NodePath("Components/GunComponent")
 health_component = NodePath("Components/HealthComponent")
 animation_component = NodePath("Components/AnimationComponent")
 
-[node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
-
-[node name="Gun" type="Sprite2D" parent="Visuals" unique_id=1210393260]
+[node name="Gun" type="Sprite2D" parent="." unique_id=1210393260]
 z_index = 1
 position = Vector2(0, -6)
-texture = ExtResource("7_fjrip")
+texture = ExtResource("2_d2wvv")
 centered = false
-offset = Vector2(0, -2)
+offset = Vector2(-12, -10)
 
-[node name="Muzzle" type="Marker2D" parent="Visuals/Gun" unique_id=1058219260]
-position = Vector2(5.7599998, -3.973643e-08)
+[node name="Muzzle" type="Marker2D" parent="Gun" unique_id=1058219260]
+position = Vector2(17, 5)
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
 
 [node name="Body" type="Sprite2D" parent="Visuals" unique_id=353892764]
-texture = ExtResource("2_3v2ag")
-hframes = 2
-vframes = 2
+texture = ExtResource("3_d2wvv")
 
 [node name="Components" type="Node" parent="." unique_id=1626316903]
 
@@ -143,8 +141,8 @@ speed = 120.0
 
 [node name="GunComponent" parent="Components" unique_id=769225365 node_paths=PackedStringArray("gun_visuals", "muzzle") instance=ExtResource("6_smehm")]
 bullet = ExtResource("7_d2wvv")
-gun_visuals = NodePath("../../Visuals/Gun")
-muzzle = NodePath("../../Visuals/Gun/Muzzle")
+gun_visuals = NodePath("../../Gun")
+muzzle = NodePath("../../Gun/Muzzle")
 
 [node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body") instance=ExtResource("7_ur7pv")]
 body = NodePath("../..")
