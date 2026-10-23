@@ -35,6 +35,7 @@ speed = 20.0
 
 [node name="TrackerComponent" parent="Components" unique_id=1220211303 node_paths=PackedStringArray("tracker") instance=ExtResource("4_yt5vg")]
 tracker = NodePath("../..")
+start_tracking_distance = 1000.0
 
 [node name="GravityComponent" parent="Components" unique_id=827299611 instance=ExtResource("5_7t5mr")]
 

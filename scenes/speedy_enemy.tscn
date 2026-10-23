@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://6g6u2vp8pp55"]
+
+[ext_resource type="PackedScene" uid="uid://c60kihk36ttm5" path="res://scenes/enemy_base.tscn" id="1_otlga"]
+[ext_resource type="Script" uid="uid://d2bhalw25axvp" path="res://scripts/simple_enemy.gd" id="2_5i53i"]
+[ext_resource type="Texture2D" uid="uid://dem5dny3i8umy" path="res://assets/dialog_box_9patch.png" id="2_fvc5y"]
+[ext_resource type="PackedScene" uid="uid://ygux51qhvuoa" path="res://scenes/components/touch_damager_component.tscn" id="3_5i53i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx8sn"]
+radius = 7.0
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ossc8"]
+size = Vector2(20, 8)
+
+[node name="SpeedyEnemy" unique_id=733239099 node_paths=PackedStringArray("touch_damager_component") instance=ExtResource("1_otlga")]
+script = ExtResource("2_5i53i")
+touch_damager_component = NodePath("Components/TouchDamagerComponent")
+
+[node name="DialogBox9Patch" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="0" unique_id=419529287]
+position = Vector2(0, -1)
+scale = Vector2(0.5555555, 0.22222222)
+texture = ExtResource("2_fvc5y")
+
+[node name="Empty" type="AudioStreamPlayer2D" parent="Sounds" parent_id_path=PackedInt32Array(947285440) index="0" unique_id=1126159965]
+
+[node name="HealthComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="0" unique_id=1130167078]
+max_health = 40.0
+
+[node name="MovementComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="1" unique_id=275666189]
+speed = 200.0
+
+[node name="TouchDamagerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="7" unique_id=934853369 node_paths=PackedStringArray("hazard_owner", "attack_box", "attack_sound") instance=ExtResource("3_5i53i")]
+hazard_owner = NodePath("../..")
+attack_box = NodePath("../../TouchDamageBox")
+attack_sound = NodePath("../../Sounds/Empty")
+
+[node name="Collision" parent="." index="4" unique_id=1302760824]
+position = Vector2(0, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mx8sn")
+
+[node name="TouchDamageBox" type="Area2D" parent="." index="6" unique_id=446026016]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamageBox" index="0" unique_id=1643066402]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ossc8")

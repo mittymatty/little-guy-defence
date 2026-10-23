@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://7slsrx602p7n" path="res://scenes/game_ui.tscn" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cur2g8yo18jiu" path="res://assets/BlackBackground.png" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dlvawo4t42v30" path="res://scenes/player.tscn" id="2_w8frs"]
-[ext_resource type="PackedScene" uid="uid://cwvbinbhvljq5" path="res://scenes/another_enemy_test.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://6g6u2vp8pp55" path="res://scenes/speedy_enemy.tscn" id="5_2r41h"]
+[ext_resource type="PackedScene" uid="uid://cwvbinbhvljq5" path="res://scenes/BasicEnemy.tscn" id="5_ppgk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
 size = Vector2(13.058441, 20)
@@ -36,7 +37,7 @@ scale = Vector2(13.666669, 8.250024)
 texture = ExtResource("1_w7c3h")
 
 [node name="player" parent="." unique_id=1133307836 instance=ExtResource("2_w8frs")]
-position = Vector2(502, 536)
+position = Vector2(498, 479)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1304932429]
 
@@ -46,6 +47,14 @@ rotation = -3.1415925
 scale = Vector2(102.666664, 1)
 shape = SubResource("RectangleShape2D_w7c3h")
 
-[node name="AnotherEnemy" parent="." unique_id=1974758763 node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+[node name="BasicScene" parent="." unique_id=1974758763 node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
 position = Vector2(222, 528)
+player = NodePath("../player")
+
+[node name="BasicScene2" parent="." unique_id=733239099 node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+position = Vector2(230, 472)
+player = NodePath("../player")
+
+[node name="SpeedyEnemy" parent="." unique_id=1665952800 node_paths=PackedStringArray("player") instance=ExtResource("5_2r41h")]
+position = Vector2(343, 458)
 player = NodePath("../player")
