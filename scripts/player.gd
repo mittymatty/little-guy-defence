@@ -11,6 +11,13 @@ class_name Player extends CharacterBody2D
 
 @onready var gun: Sprite2D = $Visuals/Gun
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var reload_bar: ProgressBar = $ReloadBar
+
+func on_gun_reload () -> void:
+	var reload_tween: Tween = create_tween()
+	reload_bar.show()
+	reload_tween.tween_property(reload_bar,"value",reload_bar.max_value,gun_component.reload_timer.wait_time).from(0.0)
+	reload_tween.tween_callback(reload_bar.hide)
 
 func on_died () -> void:
 	queue_free()
@@ -21,6 +28,7 @@ func on_gun_fired () -> void:
 func _ready() -> void:
 	health_component.died.connect(on_died)
 	gun_component.fired.connect(on_gun_fired)
+	gun_component.reload.connect(on_gun_reload)
 
 func animate () -> void:
 	animation_component.handle_horizontal_flip(input_component.input_horizontal,false)

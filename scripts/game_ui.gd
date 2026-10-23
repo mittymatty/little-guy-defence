@@ -1,6 +1,6 @@
 extends Control
 @export var player: Player
-@onready var health_bar: HealthBar = $MarginContainer/VBoxContainer/HealthBar
+@onready var health_bar: HealthBar = $MarginContainer/VBoxContainer2/HealthBar
 @onready var gun_component: GunComponent = player.gun_component
 
 @onready var ammo_counter: Label = $MarginContainer/VBoxContainer/AmmoCounter

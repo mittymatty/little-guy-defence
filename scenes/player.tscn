@@ -11,13 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cur2g8yo18jiu" path="res://assets/BlackBackground.png" id="7_fjrip"]
 [ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="7_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="9_3v2ag"]
-[ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/health_bar.tscn" id="10_y4r1p"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
-radius = 16.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2wvv"]
-bg_color = Color(0.6748146, 0.67481464, 0.6748144, 1)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
+radius = 5.0
 
 [sub_resource type="Animation" id="Animation_d2wvv"]
 length = 0.001
@@ -98,6 +94,12 @@ _data = {
 &"wobble": SubResource("Animation_3v2ag")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy6xw"]
+bg_color = Color(0.6, 0.6, 0.6, 0.3019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2wvv"]
+bg_color = Color(0.6748146, 0.67481464, 0.6748144, 1)
+
 [node name="player" type="CharacterBody2D" unique_id=1133307836 node_paths=PackedStringArray("movement_component", "jump_component", "input_component", "gravity_component", "gun_component", "health_component", "animation_component")]
 collision_layer = 2
 script = ExtResource("1_g2els")
@@ -113,6 +115,7 @@ animation_component = NodePath("Components/AnimationComponent")
 
 [node name="Gun" type="Sprite2D" parent="Visuals" unique_id=1210393260]
 z_index = 1
+position = Vector2(0, -6)
 texture = ExtResource("7_fjrip")
 centered = false
 offset = Vector2(0, -2)
@@ -150,22 +153,26 @@ body = NodePath("../..")
 nodes_to_flip = [NodePath("../../Visuals")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1363302001]
-shape = SubResource("CircleShape2D_xrivr")
+shape = SubResource("CapsuleShape2D_d2wvv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=799997658]
-position = Vector2(0, -50)
-zoom = Vector2(1.5, 1.5)
+position = Vector2(0, -70)
+zoom = Vector2(1.75, 1.75)
 
 [node name="Sounds" type="Node2D" parent="." unique_id=1689226807]
 
 [node name="Land" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1104987725]
 
-[node name="ReloadBar" parent="." unique_id=1492475502 instance=ExtResource("10_y4r1p")]
-visible = false
-offset_top = -23.0
-offset_bottom = -21.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_d2wvv")
-script = null
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1429232923]
 libraries/ = SubResource("AnimationLibrary_jej6c")
+
+[node name="ReloadBar" type="ProgressBar" parent="." unique_id=783981462]
+visible = false
+offset_left = -11.0
+offset_top = -24.0
+offset_right = 11.0
+offset_bottom = -20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hy6xw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d2wvv")
+value = 50.0
+show_percentage = false
