@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dqoeirelb61ah" path="res://scenes/projectiles/player_bullet.tscn" id="5_egd3g"]
 [ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="5_xefxo"]
 [ext_resource type="PackedScene" uid="uid://ddnaujh8g10oe" path="res://scenes/components/tracker_component.tscn" id="6_egd3g"]
-[ext_resource type="Texture2D" uid="uid://da8yohu5i4tk8" path="res://assets/toy soldier.png" id="7_vr6e3"]
 [ext_resource type="Texture2D" uid="uid://ba8a4wcdcst1w" path="res://assets/parachute.png" id="7_xefxo"]
 [ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="8_6jgr1"]
 [ext_resource type="Texture2D" uid="uid://c4v42k0h04cyx" path="res://assets/pistol.png" id="8_xefxo"]
+[ext_resource type="Texture2D" uid="uid://gatfbwy2d0ov" path="res://assets/saluting soldier.png" id="10_6jgr1"]
 [ext_resource type="PackedScene" uid="uid://ckbwe46oi0hce" path="res://scenes/reload_bar.tscn" id="11_rjri2"]
 [ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/ui/health_bar.tscn" id="13_qxc4t"]
 
@@ -75,9 +75,7 @@ position = Vector2(0, -22)
 texture = ExtResource("7_xefxo")
 
 [node name="Sprite" type="Sprite2D" parent="Visuals" unique_id=2105146054]
-texture = ExtResource("7_vr6e3")
-hframes = 2
-vframes = 2
+texture = ExtResource("10_6jgr1")
 
 [node name="Gun" type="Sprite2D" parent="Visuals" unique_id=510723242]
 position = Vector2(3, -2)

@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cbv8j5xwmuixe" path="res://assets/green 2.png" id="12_mk2nf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(1748, 74)
+size = Vector2(1748, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
 size = Vector2(126, 789)
@@ -55,8 +55,7 @@ sources/3 = SubResource("TileSetAtlasSource_43jao")
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=1170981993]
 
-[node name="Game UI" parent="GameUI" unique_id=1426189323 node_paths=PackedStringArray("player") instance=ExtResource("8_xunnl")]
-player = NodePath("")
+[node name="Game UI" parent="GameUI" unique_id=1426189323 instance=ExtResource("8_xunnl")]
 
 [node name="player" parent="." unique_id=1133307836 instance=ExtResource("1_iw0c1")]
 position = Vector2(299, 206)
@@ -70,7 +69,7 @@ scale = Vector2(0.70096153, 0.70096153)
 texture = ExtResource("2_tjgix")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1540835664]
-position = Vector2(502, 395)
+position = Vector2(502, 408)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=515842285]

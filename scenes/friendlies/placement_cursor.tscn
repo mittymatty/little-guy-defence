@@ -8,6 +8,7 @@
 radius = 14.0
 
 [node name="PlacementCursor" type="Marker2D" unique_id=1614709603]
+z_index = 5
 script = ExtResource("1_ai2in")
 
 [node name="SpriteValid" type="Sprite2D" parent="." unique_id=1419190491]
