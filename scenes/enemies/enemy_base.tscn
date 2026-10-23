@@ -31,7 +31,7 @@ animation_component = NodePath("Components/AnimationComponent")
 body = NodePath("../..")
 
 [node name="MovementComponent" parent="Components" unique_id=275666189 instance=ExtResource("3_esqeu")]
-speed = 20.0
+speed = 60.0
 
 [node name="TrackerComponent" parent="Components" unique_id=1220211303 node_paths=PackedStringArray("tracker") instance=ExtResource("4_yt5vg")]
 tracker = NodePath("../..")

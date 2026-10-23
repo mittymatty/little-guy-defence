@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://oks2sxp1t45s" path="res://assets/box_9patch.png" id="4_ru5ln"]
 [ext_resource type="Texture2D" uid="uid://gatfbwy2d0ov" path="res://assets/saluting soldier.png" id="6_v1bdg"]
 [ext_resource type="Resource" uid="uid://cnhk32lv3frjh" path="res://resources/pistol_trooper.tres" id="7_yvtb5"]
+[ext_resource type="Resource" uid="uid://bl28phk4lorh7" path="res://resources/shotgun_trooper.tres" id="8_k7elv"]
+[ext_resource type="Resource" uid="uid://ca6egkjw3vm77" path="res://resources/rifle_trooper.tres" id="9_fftnl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u001w"]
 font = ExtResource("2_bma8u")
@@ -82,6 +84,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TroopSelect" type="MarginContainer" parent="." unique_id=1224922898]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,6 +125,14 @@ alignment = 1
 [node name="TroopButton" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=424994559 instance=ExtResource("4_fct72")]
 layout_mode = 2
 troop_data = ExtResource("7_yvtb5")
+
+[node name="TroopButton2" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=894711707 instance=ExtResource("4_fct72")]
+layout_mode = 2
+troop_data = ExtResource("8_k7elv")
+
+[node name="TroopButton3" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=421401630 instance=ExtResource("4_fct72")]
+layout_mode = 2
+troop_data = ExtResource("9_fftnl")
 
 [node name="ContinueButton" type="Button" parent="TroopSelect/VBoxContainer" unique_id=1190155313]
 layout_mode = 2

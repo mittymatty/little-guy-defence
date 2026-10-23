@@ -31,10 +31,10 @@ func on_died () -> void:
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	
+	var should_jump: bool = jump_detector_component.check_if_should_jump() or (tracker_component.target_is_above and tracker_component.distance_from_target < tracker_component.start_tracking_distance * 0.25)
 	gravity_component.handle_gravity(self,delta)
 	movement_component.handle_horizontal_movement(self,tracker_component.movement_horizontal)
-	jump_component.handle_jump(self,jump_detector_component.check_if_should_jump())
+	jump_component.handle_jump(self,should_jump)
 	animation_component.handle_horizontal_flip(velocity.x,false)
 	
 	move_and_slide()

@@ -3,25 +3,25 @@
 [ext_resource type="Script" uid="uid://bs0ct6yaotpup" path="res://scripts/shooting_enemy.gd" id="1_bghml"]
 [ext_resource type="PackedScene" uid="uid://c60kihk36ttm5" path="res://scenes/enemies/enemy_base.tscn" id="1_dhunw"]
 [ext_resource type="Texture2D" uid="uid://c4v42k0h04cyx" path="res://assets/pistol.png" id="3_rj5pj"]
-[ext_resource type="Texture2D" uid="uid://oks2sxp1t45s" path="res://assets/box_9patch.png" id="3_wymo3"]
+[ext_resource type="Texture2D" uid="uid://isi48lc8g4ou" path="res://assets/front soldier.png" id="3_wymo3"]
 [ext_resource type="PackedScene" uid="uid://cy5ppw87jnmn8" path="res://scenes/components/gun_component.tscn" id="4_wymo3"]
 [ext_resource type="PackedScene" uid="uid://cxny1k133xbwk" path="res://scenes/projectiles/enemy_bullet.tscn" id="5_itbqu"]
 [ext_resource type="PackedScene" uid="uid://ckbwe46oi0hce" path="res://scenes/reload_bar.tscn" id="7_rj5pj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgqta"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lv7wv"]
+radius = 6.0
 
 [node name="ShootingEnemy" unique_id=733239099 node_paths=PackedStringArray("gun_component") instance=ExtResource("1_dhunw")]
 script = ExtResource("1_bghml")
 gun_component = NodePath("Components/GunComponent")
 
-[node name="DialogBox9Patch" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="0" unique_id=1812456007]
-modulate = Color(1, 0.17254902, 1, 1)
-scale = Vector2(0.5555556, 0.5555556)
+[node name="Sprite" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="0" unique_id=1812456007]
+modulate = Color(0.9882353, 0, 0, 1)
 texture = ExtResource("3_wymo3")
 
 [node name="Pistol" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="1" unique_id=289626248]
-modulate = Color(1, 0.17254902, 1, 1)
-position = Vector2(3, 0)
+modulate = Color(0.9882353, 0, 0, 1)
+position = Vector2(1, -3)
 texture = ExtResource("3_rj5pj")
 
 [node name="Muzzle" type="Marker2D" parent="Visuals/Pistol" index="0" unique_id=903518442]
@@ -29,6 +29,9 @@ position = Vector2(9, -0.5)
 
 [node name="HealthComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="0" unique_id=1130167078]
 max_health = 50.0
+
+[node name="MovementComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="1" unique_id=275666189]
+speed = 80.0
 
 [node name="TrackerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="2" unique_id=1220211303]
 stop_tracking_distance = 200.0
@@ -50,4 +53,5 @@ offset_bottom = -12.0
 gun_component = NodePath("../Components/GunComponent")
 
 [node name="Collision" parent="." index="5" unique_id=1302760824]
-shape = SubResource("RectangleShape2D_cgqta")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_lv7wv")

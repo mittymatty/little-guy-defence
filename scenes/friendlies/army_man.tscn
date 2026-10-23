@@ -23,6 +23,7 @@ spread = 90.0
 
 [node name="ArmyMan" type="CharacterBody2D" unique_id=365000319 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "animation_component", "gun_component", "health_component", "drop_chute_raycast", "parachute")]
 collision_layer = 2
+collision_mask = 33
 script = ExtResource("1_txgrc")
 movement_component = NodePath("Components/MovementComponent")
 gravity_component = NodePath("Components/GravityComponent")
@@ -91,6 +92,7 @@ shape = SubResource("CapsuleShape2D_vr6e3")
 
 [node name="DropChuteRaycast" type="RayCast2D" parent="." unique_id=1979894663]
 target_position = Vector2(0, 52)
+collision_mask = 33
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2109886639]
 visible = false
