@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="LittleGuyDefence"
+config/name="Shelftop Warfare"
 run/main_scene="uid://ci6lib8t57l3k"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://isi48lc8g4ou"
 
 [autoload]
 
