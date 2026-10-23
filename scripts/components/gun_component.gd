@@ -11,13 +11,18 @@ class_name GunComponent extends Node
 
 @export_subgroup("Configuration")
 @export var max_ammo: int = 10
-@export var starter_ammo: int = 10
 
-signal fired (direction_to_shot: Vector2)
+var ammo: int
+
+signal fired
+
+func _ready() -> void:
+	ammo = max_ammo
 
 func handle_gun (delta: float, target_pos: Vector2, wants_to_shoot: bool, _wants_to_reload: bool) -> void:
 	rotate_to_target(delta, target_pos)
-	if wants_to_shoot and cooldown_timer.is_stopped():
+	if wants_to_shoot and cooldown_timer.is_stopped() and ammo > 0:
+		
 		cooldown_timer.start()
 		shoot()
 
