@@ -2,5 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cki161c0f7vm0" path="res://scripts/components/gun_component.gd" id="1_dro8e"]
 
-[node name="GunComponent" type="Node" unique_id=769225365]
+[node name="GunComponent" type="Node" unique_id=769225365 node_paths=PackedStringArray("cooldown_timer", "reload_timer")]
 script = ExtResource("1_dro8e")
+cooldown_timer = NodePath("CooldownTimer")
+reload_timer = NodePath("ReloadTimer")
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=406347045]
+wait_time = 0.25
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=343490544]
+wait_time = 2.0

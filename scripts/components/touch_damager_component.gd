@@ -18,7 +18,7 @@ func scan_and_deal_damage() -> void:
 	var attack_hit: bool = false
 	
 	for body in attack_box.get_overlapping_bodies():
-		if body.health_component:
+		if "health_component" in body:
 			var final_knockback: Vector2 = Vector2(knockback.x if hazard_owner.global_position.x < body.global_position.x else -knockback.x, knockback.y)
 			body.health_component.take_damage(damage,final_knockback,hazard_owner.global_position)
 			attack_hit = true

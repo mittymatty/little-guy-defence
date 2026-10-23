@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="8_yt5vg"]
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=733239099 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "health_component", "jump_component", "jump_detector_component", "animation_component")]
+collision_layer = 4
 script = ExtResource("1_xuskm")
 movement_component = NodePath("Components/MovementComponent")
 gravity_component = NodePath("Components/GravityComponent")
@@ -22,11 +23,15 @@ animation_component = NodePath("Components/AnimationComponent")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=434325312]
 
+[node name="Sounds" type="Node2D" parent="." unique_id=947285440]
+
 [node name="Components" type="Node" parent="." unique_id=887696548]
 
-[node name="HealthComponent" parent="Components" unique_id=1130167078 instance=ExtResource("2_3ysdf")]
+[node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body") instance=ExtResource("2_3ysdf")]
+body = NodePath("../..")
 
 [node name="MovementComponent" parent="Components" unique_id=275666189 instance=ExtResource("3_esqeu")]
+speed = 20.0
 
 [node name="TrackerComponent" parent="Components" unique_id=1220211303 node_paths=PackedStringArray("tracker") instance=ExtResource("4_yt5vg")]
 tracker = NodePath("../..")

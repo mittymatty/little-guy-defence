@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://ci6lib8t57l3k"]
 
+[ext_resource type="PackedScene" uid="uid://7slsrx602p7n" path="res://scenes/game_ui.tscn" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cur2g8yo18jiu" path="res://assets/BlackBackground.png" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dlvawo4t42v30" path="res://scenes/player.tscn" id="2_w8frs"]
-[ext_resource type="PackedScene" uid="uid://cl2o5gld4jcps" path="res://scenes/simple_enemy.tscn" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cwvbinbhvljq5" path="res://scenes/another_enemy_test.tscn" id="5_ppgk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
 size = Vector2(13.058441, 20)
 
 [node name="Level" type="Node2D" unique_id=1049619043]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044881245]
+
+[node name="Game UI" parent="CanvasLayer" unique_id=1426189323 node_paths=PackedStringArray("player") instance=ExtResource("1_mx8sn")]
+player = NodePath("../../player")
 
 [node name="Floor" type="Sprite2D" parent="." unique_id=2028888874]
 position = Vector2(823.50006, 607)
@@ -40,6 +46,6 @@ rotation = -3.1415925
 scale = Vector2(102.666664, 1)
 shape = SubResource("RectangleShape2D_w7c3h")
 
-[node name="EnemyBase" parent="." unique_id=733239099 node_paths=PackedStringArray("player") instance=ExtResource("3_w8frs")]
-position = Vector2(814, 520)
+[node name="AnotherEnemy" parent="." unique_id=1974758763 node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+position = Vector2(222, 528)
 player = NodePath("../player")

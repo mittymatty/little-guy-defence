@@ -14,9 +14,20 @@ class_name Enemy extends CharacterBody2D
 func _ready() -> void:
 	tracker_component.tracker_target = player
 	health_component.damaged.connect(on_damaged)
+	health_component.died.connect(on_died)
 
-func on_damaged() -> void:
-	print("ouch")
+func on_damaged(_damage_taken: float) -> void:
+	damage_flash()
+
+func damage_flash() -> void:
+	var red_flash: Tween = create_tween()
+	var white_flash: Tween = create_tween()
+	
+	white_flash.tween_property(self,"modulate:v",1,0.1).from(15)
+	red_flash.tween_property(self, "modulate:s", 0, 0.1).from(15)
+
+func on_died () -> void:
+	queue_free()
 
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self,delta)

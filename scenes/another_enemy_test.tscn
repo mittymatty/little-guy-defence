@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cwvbinbhvljq5"]
+
+[ext_resource type="PackedScene" uid="uid://c60kihk36ttm5" path="res://scenes/enemy_base.tscn" id="1_dg3yh"]
+[ext_resource type="Script" uid="uid://d2bhalw25axvp" path="res://scripts/simple_enemy.gd" id="2_a6qa7"]
+[ext_resource type="Texture2D" uid="uid://dem5dny3i8umy" path="res://assets/dialog_box_9patch.png" id="2_p6ar2"]
+[ext_resource type="PackedScene" uid="uid://ygux51qhvuoa" path="res://scenes/components/touch_damager_component.tscn" id="3_p6ar2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5j6j"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6qa7"]
+size = Vector2(20, 18)
+
+[node name="AnotherEnemy" unique_id=733239099 node_paths=PackedStringArray("touch_damager_component") instance=ExtResource("1_dg3yh")]
+script = ExtResource("2_a6qa7")
+touch_damager_component = NodePath("Components/TouchDamagerComponent")
+
+[node name="DialogBox9Patch" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="0" unique_id=612515200]
+texture = ExtResource("2_p6ar2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds" parent_id_path=PackedInt32Array(947285440) index="0" unique_id=1570285091]
+
+[node name="TrackerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="2" unique_id=1220211303]
+start_tracking_distance = 500.0
+
+[node name="TouchDamagerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="7" unique_id=934853369 node_paths=PackedStringArray("hazard_owner", "attack_box", "attack_sound") instance=ExtResource("3_p6ar2")]
+hazard_owner = NodePath("../..")
+attack_box = NodePath("../../TouchDamageBox")
+attack_sound = NodePath("../../Sounds/AudioStreamPlayer2D")
+
+[node name="Collision" parent="." index="4" unique_id=1302760824]
+shape = SubResource("RectangleShape2D_i5j6j")
+
+[node name="TouchDamageBox" type="Area2D" parent="." index="6" unique_id=1897587127]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamageBox" index="0" unique_id=112529143]
+shape = SubResource("RectangleShape2D_a6qa7")
