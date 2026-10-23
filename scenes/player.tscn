@@ -10,11 +10,95 @@
 [ext_resource type="PackedScene" uid="uid://dqoeirelb61ah" path="res://scenes/bullet.tscn" id="7_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://cur2g8yo18jiu" path="res://assets/BlackBackground.png" id="7_fjrip"]
 [ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="7_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="9_3v2ag"]
+[ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/health_bar.tscn" id="10_y4r1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
 radius = 16.0
 
-[node name="player" type="CharacterBody2D" unique_id=1133307836 node_paths=PackedStringArray("movement_component", "jump_component", "input_component", "gravity_component", "gun_component", "health_component")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2wvv"]
+bg_color = Color(0.6748146, 0.67481464, 0.6748144, 1)
+
+[sub_resource type="Animation" id="Animation_d2wvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jej6c"]
+resource_name = "reset"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3v2ag"]
+resource_name = "wobble"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Body:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.08726646259971647, -0.08726646259971647]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(0, 0), Vector2(0, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jej6c"]
+_data = {
+&"RESET": SubResource("Animation_d2wvv"),
+&"reset": SubResource("Animation_jej6c"),
+&"wobble": SubResource("Animation_3v2ag")
+}
+
+[node name="player" type="CharacterBody2D" unique_id=1133307836 node_paths=PackedStringArray("movement_component", "jump_component", "input_component", "gravity_component", "gun_component", "health_component", "animation_component")]
 collision_layer = 2
 script = ExtResource("1_g2els")
 movement_component = NodePath("Components/MovementComponent")
@@ -23,6 +107,13 @@ input_component = NodePath("Components/InputComponent")
 gravity_component = NodePath("Components/GravityComponent")
 gun_component = NodePath("Components/GunComponent")
 health_component = NodePath("Components/HealthComponent")
+animation_component = NodePath("Components/AnimationComponent")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
+
+[node name="Body" type="Sprite2D" parent="Visuals" unique_id=353892764]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_g2els")
 
 [node name="Components" type="Node" parent="." unique_id=1626316903]
 
@@ -45,9 +136,8 @@ muzzle = NodePath("../../Gun/Muzzle")
 [node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body") instance=ExtResource("7_ur7pv")]
 body = NodePath("../..")
 
-[node name="Body" type="Sprite2D" parent="." unique_id=353892764]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_g2els")
+[node name="AnimationComponent" parent="Components" unique_id=222523302 node_paths=PackedStringArray("nodes_to_flip") instance=ExtResource("9_3v2ag")]
+nodes_to_flip = [NodePath("../../Visuals")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1363302001]
 shape = SubResource("CircleShape2D_xrivr")
@@ -61,6 +151,7 @@ zoom = Vector2(1.5, 1.5)
 [node name="Land" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1104987725]
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=1210393260]
+z_index = 1
 position = Vector2(9.536743e-07, 5.9604645e-08)
 scale = Vector2(4.1666665, 1.5)
 texture = ExtResource("7_fjrip")
@@ -69,3 +160,13 @@ offset = Vector2(0, -2)
 
 [node name="Muzzle" type="Marker2D" parent="Gun" unique_id=1058219260]
 position = Vector2(5.7599998, -3.973643e-08)
+
+[node name="ReloadBar" parent="." unique_id=1492475502 instance=ExtResource("10_y4r1p")]
+visible = false
+offset_top = -23.0
+offset_bottom = -21.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_d2wvv")
+script = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1429232923]
+libraries/ = SubResource("AnimationLibrary_jej6c")
