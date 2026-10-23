@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmfvsuo8g21cg" path="res://scenes/components/input_component.tscn" id="5_fjrip"]
 [ext_resource type="PackedScene" uid="uid://cy5ppw87jnmn8" path="res://scenes/components/gun_component.tscn" id="6_smehm"]
 [ext_resource type="PackedScene" uid="uid://vqjy0rat2u5d" path="res://scenes/components/gravity_component.tscn" id="6_tuyoq"]
-[ext_resource type="PackedScene" uid="uid://dqoeirelb61ah" path="res://scenes/player_bullet.tscn" id="7_d2wvv"]
+[ext_resource type="PackedScene" uid="uid://dqoeirelb61ah" path="res://scenes/projectiles/player_bullet.tscn" id="7_d2wvv"]
 [ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="7_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="9_3v2ag"]
 

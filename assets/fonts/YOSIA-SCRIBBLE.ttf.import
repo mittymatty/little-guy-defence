@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b8ax26brwlcg6"
-path="res://.godot/imported/Toy Toy Toon.ttf-2940a9d8945ab32df7c8568b2213b8af.fontdata"
+uid="uid://dn1dl7h18dgue"
+path="res://.godot/imported/YOSIA-SCRIBBLE.ttf-3d7dca1aa18c6e8ecf83dc74cd60f5e1.fontdata"
 
 [deps]
 
-source_file="res://assets/toy-toy-toon/Toy Toy Toon.ttf"
-dest_files=["res://.godot/imported/Toy Toy Toon.ttf-2940a9d8945ab32df7c8568b2213b8af.fontdata"]
+source_file="res://assets/fonts/YOSIA-SCRIBBLE.ttf"
+dest_files=["res://.godot/imported/YOSIA-SCRIBBLE.ttf-3d7dca1aa18c6e8ecf83dc74cd60f5e1.fontdata"]
 
 [params]
 

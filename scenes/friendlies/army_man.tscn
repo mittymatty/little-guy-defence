@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c0v6l6r5fiqtr"]
+
+[ext_resource type="Script" uid="uid://om3wpdk5726f" path="res://scripts/army_man.gd" id="1_txgrc"]
+[ext_resource type="PackedScene" uid="uid://cy1034rgijxmi" path="res://scenes/components/movement_component.tscn" id="2_p2m5h"]
+[ext_resource type="PackedScene" uid="uid://vqjy0rat2u5d" path="res://scenes/components/gravity_component.tscn" id="3_5tgx5"]
+[ext_resource type="PackedScene" uid="uid://cy5ppw87jnmn8" path="res://scenes/components/gun_component.tscn" id="4_vr6e3"]
+[ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="5_xefxo"]
+[ext_resource type="PackedScene" uid="uid://ddnaujh8g10oe" path="res://scenes/components/tracker_component.tscn" id="6_egd3g"]
+[ext_resource type="Texture2D" uid="uid://da8yohu5i4tk8" path="res://assets/toy soldier.png" id="7_vr6e3"]
+[ext_resource type="Texture2D" uid="uid://ba8a4wcdcst1w" path="res://assets/parachute.png" id="7_xefxo"]
+[ext_resource type="Texture2D" uid="uid://c4v42k0h04cyx" path="res://assets/pistol.png" id="8_xefxo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vr6e3"]
+radius = 5.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hy6xw"]
+particle_flag_disable_z = true
+spread = 90.0
+
+[node name="ArmyMan" type="CharacterBody2D" unique_id=365000319 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "animation_component", "drop_chute_raycast", "parachute")]
+collision_layer = 0
+script = ExtResource("1_txgrc")
+movement_component = NodePath("Components/MovementComponent")
+gravity_component = NodePath("Components/GravityComponent")
+tracker_component = NodePath("Components/TrackerComponent")
+animation_component = NodePath("Components/AnimationComponent")
+drop_chute_raycast = NodePath("DropChuteRaycast")
+parachute = NodePath("Visuals/Parachute")
+
+[node name="Components" type="Node" parent="." unique_id=15715907]
+
+[node name="MovementComponent" parent="Components" unique_id=275666189 instance=ExtResource("2_p2m5h")]
+
+[node name="GravityComponent" parent="Components" unique_id=827299611 instance=ExtResource("3_5tgx5")]
+
+[node name="GunComponent" parent="Components" unique_id=769225365 instance=ExtResource("4_vr6e3")]
+
+[node name="AnimationComponent" parent="Components" unique_id=222523302 node_paths=PackedStringArray("nodes_to_flip") instance=ExtResource("5_xefxo")]
+nodes_to_flip = [NodePath("../../Visuals")]
+
+[node name="TrackerComponent" parent="Components" unique_id=1220211303 node_paths=PackedStringArray("tracker") instance=ExtResource("6_egd3g")]
+tracker = NodePath("../..")
+start_tracking_distance = 200.0
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1694800844]
+
+[node name="Parachute" type="Sprite2D" parent="Visuals" unique_id=791557283]
+position = Vector2(0, -22)
+texture = ExtResource("7_xefxo")
+
+[node name="Sprite" type="Sprite2D" parent="Visuals" unique_id=2105146054]
+texture = ExtResource("7_vr6e3")
+hframes = 2
+vframes = 2
+
+[node name="Pistol" type="Sprite2D" parent="Visuals" unique_id=510723242]
+position = Vector2(3, -2)
+texture = ExtResource("8_xefxo")
+offset = Vector2(-4, -0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1898529838]
+shape = SubResource("CapsuleShape2D_vr6e3")
+
+[node name="DropChuteRaycast" type="RayCast2D" parent="." unique_id=1979894663]
+target_position = Vector2(0, 60)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2109886639]
+visible = false
+position = Vector2(0, -21)
+process_material = SubResource("ParticleProcessMaterial_hy6xw")

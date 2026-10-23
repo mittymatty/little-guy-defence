@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c60kihk36ttm5"]
 
-[ext_resource type="Script" uid="uid://d2my4umrs3pxn" path="res://enemy_base.gd" id="1_xuskm"]
+[ext_resource type="Script" uid="uid://d2my4umrs3pxn" path="res://scripts/enemy_base.gd" id="1_xuskm"]
 [ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="2_3ysdf"]
 [ext_resource type="PackedScene" uid="uid://cy1034rgijxmi" path="res://scenes/components/movement_component.tscn" id="3_esqeu"]
 [ext_resource type="PackedScene" uid="uid://ddnaujh8g10oe" path="res://scenes/components/tracker_component.tscn" id="4_yt5vg"]
 [ext_resource type="PackedScene" uid="uid://vqjy0rat2u5d" path="res://scenes/components/gravity_component.tscn" id="5_7t5mr"]
 [ext_resource type="PackedScene" uid="uid://cgou2ah3j44ta" path="res://scenes/components/jump_component.tscn" id="6_esqeu"]
-[ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/health_bar.tscn" id="6_y8vm1"]
+[ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/ui/health_bar.tscn" id="6_y8vm1"]
 [ext_resource type="PackedScene" uid="uid://dolv0ui3en5r3" path="res://scenes/components/jump_detector_component.tscn" id="7_yt5vg"]
 [ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="8_yt5vg"]
 

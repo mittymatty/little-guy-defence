@@ -9,7 +9,6 @@ class_name EnemySpawner extends Marker2D
 signal enemy_created (created_enemy: Enemy)
 
 func spawn_enemy() -> void:
-	
 	for i in Settings.enemy_multiplier:
 		if enemies_left_to_spawn.size() == 0:
 			queue_free()
@@ -17,6 +16,7 @@ func spawn_enemy() -> void:
 		var next_enemy: PackedScene = enemies_left_to_spawn.front()
 		var new_enemy: Enemy = next_enemy.instantiate()
 		new_enemy.global_position = global_position
+		new_enemy.name = new_enemy.name + str(get_tree().get_nodes_in_group("enemies").size())
 		get_tree().root.add_child.call_deferred(new_enemy)
 		enemy_created.emit(new_enemy)
 		await get_tree().create_timer(0.25).timeout

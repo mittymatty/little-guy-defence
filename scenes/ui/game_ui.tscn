@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://7slsrx602p7n"]
+
+[ext_resource type="Script" uid="uid://drxiayebo8v1s" path="res://scripts/game_ui.gd" id="1_u001w"]
+[ext_resource type="FontFile" uid="uid://dn1dl7h18dgue" path="res://assets/fonts/YOSIA-SCRIBBLE.ttf" id="2_bma8u"]
+[ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/ui/health_bar.tscn" id="2_u001w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u001w"]
+font = ExtResource("2_bma8u")
+font_size = 30
+
+[node name="Game UI" type="Control" unique_id=1426189323]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u001w")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=498502098]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=836613608]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="AmmoCounter" type="Label" parent="MarginContainer/VBoxContainer" unique_id=687502012]
+layout_mode = 2
+text = "Ammo: 10/10"
+label_settings = SubResource("LabelSettings_u001w")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer" unique_id=1740020079]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HealthBar" parent="MarginContainer/VBoxContainer2" unique_id=1492475502 instance=ExtResource("2_u001w")]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+always_visible = true
