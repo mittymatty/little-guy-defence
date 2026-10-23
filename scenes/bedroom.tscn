@@ -23,25 +23,21 @@ size = Vector2(126, 789)
 texture = ExtResource("9_lv7wv")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bd3ru"]
 texture = ExtResource("10_k5fq4")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cs7aj"]
 texture = ExtResource("11_4wfg3")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43jao"]
 texture = ExtResource("12_mk2nf")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_1vivr"]
 tile_size = Vector2i(64, 64)
@@ -50,6 +46,12 @@ sources/0 = SubResource("TileSetAtlasSource_cixf6")
 sources/1 = SubResource("TileSetAtlasSource_bd3ru")
 sources/2 = SubResource("TileSetAtlasSource_cs7aj")
 sources/3 = SubResource("TileSetAtlasSource_43jao")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vrlf"]
+size = Vector2(254, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5gy4"]
+size = Vector2(60.5, 6)
 
 [node name="Node2D" type="Node2D" unique_id=602288621]
 
@@ -137,5 +139,88 @@ scale = Vector2(0.86702126, 0.8670212)
 texture = ExtResource("5_6d2g4")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1328139223]
+z_index = -1
 tile_map_data = PackedByteArray("AAABAAUAAAAAAAAAAAAAAAUAAQAAAAAAAAAQAAUAAwAAAAAAAAAFAAUAAQAAAAAAAAAMAAUAAwAAAAAAAAAPAAUAAwAAAAAAAAD9/wUAAgAAAAAAAAAGAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAALAAUAAQAAAAAAAAACAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAARAAUAAAAAAAAAAAD//wUAAQAAAAAAAAD9/wQAAwAAAAAAAAD//wQAAgAAAAAAAAAJAAQAAwAAAAAAAAAPAAQAAwAAAAAAAAAIAAQAAgAAAAAAAAATAAUAAAAAAAAAAAAUAAQAAQAAAAAAAAAUAAUAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_1vivr")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=570103455]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1896752734]
+position = Vector2(64, 324)
+shape = SubResource("RectangleShape2D_8vrlf")
+one_way_collision = true
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2050011532]
+position = Vector2(1023, 325)
+shape = SubResource("RectangleShape2D_8vrlf")
+one_way_collision = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1737768881]
+position = Vector2(448, 324)
+shape = SubResource("RectangleShape2D_8vrlf")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1901405602]
+position = Vector2(-160.25, 324)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2" unique_id=641977228]
+position = Vector2(-160, 263)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D2" unique_id=551326430]
+position = Vector2(-32, 261)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D2" unique_id=901034679]
+position = Vector2(-160, 263)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2" unique_id=822561875]
+position = Vector2(542, 261)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D2" unique_id=194430074]
+position = Vector2(602, 261)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1233988148]
+position = Vector2(798, 325)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1431673688]
+position = Vector2(738, 325)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D2" unique_id=708945873]
+position = Vector2(991, 262)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1039519282]
+position = Vector2(1311, 261)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D2" unique_id=544115465]
+position = Vector2(1307, 326)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1767333251]
+position = Vector2(1250, 326)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1429836281]
+position = Vector2(605, 324)
+shape = SubResource("RectangleShape2D_v5gy4")
+one_way_collision = true
