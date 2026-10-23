@@ -1,3 +1,4 @@
 extends Node
 
 var enemy_multiplier: int = 1
+var expend_troops: bool = true #If on, place infinite troops

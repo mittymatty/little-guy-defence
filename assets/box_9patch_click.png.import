@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dem5dny3i8umy"
-path="res://.godot/imported/dialog_box_9patch.png-affcd4a1f61945540ae92de4497ab33e.ctex"
+uid="uid://l2qod4amlhie"
+path="res://.godot/imported/box_9patch_click.png-c45469c0baa612af777bcd25899633d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dialog_box_9patch.png"
-dest_files=["res://.godot/imported/dialog_box_9patch.png-affcd4a1f61945540ae92de4497ab33e.ctex"]
+source_file="res://assets/box_9patch_click.png"
+dest_files=["res://.godot/imported/box_9patch_click.png-c45469c0baa612af777bcd25899633d5.ctex"]
 
 [params]
 

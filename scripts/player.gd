@@ -31,17 +31,25 @@ func animate () -> void:
 		animation_player.play("reset")
 
 func handle_click_behaviour (delta: float) -> void:
-	if PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.SHOOT:
+	var shooting: bool = PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.SHOOT
+	var placing: bool = PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.PLACE
+	
+	if shooting:
 		placement_cursor.visible = false
 		gun_component.handle_gun(delta, get_global_mouse_position(),input_component.get_attack_input_held(),input_component.get_reload_input())
-	elif PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.PLACE:
+	elif placing:
 		placement_cursor.visible = true
 		placement_cursor.handle_placement(input_component.get_attack_input())
+	
+	if placing and PlayerStatus.stored_troops.size() <= 0:
+		gun_component.cooldown_timer.start()
+		PlayerStatus.current_click_mode = PlayerStatus.CLICK_MODE.SHOOT
 
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self, delta)
 	movement_component.handle_horizontal_movement(self,input_component.input_horizontal)
 	jump_component.handle_jump(self,input_component.get_jump_input(),input_component.get_jump_input_held(),input_component.get_jump_input_released(),input_component.input_horizontal)
+	health_component.handle_regen(delta)
 	handle_click_behaviour(delta)
 	animate()
 	move_and_slide()
