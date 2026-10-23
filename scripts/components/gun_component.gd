@@ -48,10 +48,9 @@ func shoot () -> void:
 	for i in range(bullets_per_shot):
 		var angle_offset = lerp(-maximum_spread_angle, maximum_spread_angle, float(i)/bullets_per_shot)
 		var b: Bullet = bullet.instantiate()
-		print(angle_offset)
 		b.damage = bullet_damage
 		b.speed = bullet_speed
-		b.transform = muzzle.global_transform
+		b.global_transform = muzzle.global_transform
 		b.rotation += angle_offset
 		get_tree().root.add_child(b)
 	fired.emit()

@@ -8,6 +8,7 @@ class_name Player extends CharacterBody2D
 @export var gun_component: GunComponent
 @export var health_component: HealthComponent
 @export var animation_component: AnimationComponent
+@export var placement_cursor: PlacementCursor
 
 @onready var gun: Sprite2D = $Visuals/Gun
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -29,10 +30,18 @@ func animate () -> void:
 	elif animation_player.is_playing() and animation_player.current_animation != "reset":
 		animation_player.play("reset")
 
+func handle_click_behaviour (delta: float) -> void:
+	if PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.SHOOT:
+		placement_cursor.visible = false
+		gun_component.handle_gun(delta, get_global_mouse_position(),input_component.get_attack_input_held(),input_component.get_reload_input())
+	elif PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.PLACE:
+		placement_cursor.visible = true
+		placement_cursor.handle_placement(input_component.get_attack_input())
+
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self, delta)
 	movement_component.handle_horizontal_movement(self,input_component.input_horizontal)
 	jump_component.handle_jump(self,input_component.get_jump_input(),input_component.get_jump_input_held(),input_component.get_jump_input_released(),input_component.input_horizontal)
-	gun_component.handle_gun(delta, get_global_mouse_position(),input_component.get_attack_input_held(),input_component.get_reload_input())
+	handle_click_behaviour(delta)
 	animate()
 	move_and_slide()

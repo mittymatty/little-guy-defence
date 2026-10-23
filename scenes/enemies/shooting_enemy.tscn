@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dem5dny3i8umy" path="res://assets/dialog_box_9patch.png" id="3_wymo3"]
 [ext_resource type="PackedScene" uid="uid://cy5ppw87jnmn8" path="res://scenes/components/gun_component.tscn" id="4_wymo3"]
 [ext_resource type="PackedScene" uid="uid://cxny1k133xbwk" path="res://scenes/projectiles/enemy_bullet.tscn" id="5_itbqu"]
+[ext_resource type="PackedScene" uid="uid://ckbwe46oi0hce" path="res://scenes/reload_bar.tscn" id="7_rj5pj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgqta"]
 
@@ -27,7 +28,7 @@ texture = ExtResource("3_rj5pj")
 position = Vector2(9, -0.5)
 
 [node name="HealthComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="0" unique_id=1130167078]
-max_health = 40.0
+max_health = 50.0
 
 [node name="TrackerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="2" unique_id=1220211303]
 stop_tracking_distance = 200.0
@@ -39,8 +40,14 @@ muzzle = NodePath("../../Visuals/Pistol/Muzzle")
 max_ammo = 1
 
 [node name="HealthBar" parent="." index="3" unique_id=1492475502]
-offset_top = -14.0
-offset_bottom = -12.0
+offset_top = -19.0
+offset_bottom = -17.0
 
-[node name="Collision" parent="." index="4" unique_id=1302760824]
+[node name="ReloadBar" parent="." index="4" unique_id=1286998321 node_paths=PackedStringArray("gun_component") instance=ExtResource("7_rj5pj")]
+visible = true
+offset_top = -16.0
+offset_bottom = -12.0
+gun_component = NodePath("../Components/GunComponent")
+
+[node name="Collision" parent="." index="5" unique_id=1302760824]
 shape = SubResource("RectangleShape2D_cgqta")

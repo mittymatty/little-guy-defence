@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Settings="*uid://b5ay7rurrb1fl"
+PlayerStatus="*uid://d08ibnlraesl4"
 
 [display]
 

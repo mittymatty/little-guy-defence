@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cxhd6lpl2fr3x"]
+
+[ext_resource type="Texture2D" uid="uid://da8yohu5i4tk8" path="res://assets/toy soldier.png" id="1_7jjua"]
+[ext_resource type="Script" uid="uid://cky2snomvdd6e" path="res://scripts/placement_cursor.gd" id="1_ai2in"]
+[ext_resource type="Texture2D" uid="uid://isi48lc8g4ou" path="res://assets/front soldier.png" id="2_ai2in"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+radius = 14.0
+
+[node name="PlacementCursor" type="Marker2D" unique_id=1614709603]
+script = ExtResource("1_ai2in")
+
+[node name="SpriteValid" type="Sprite2D" parent="." unique_id=1419190491]
+visible = false
+modulate = Color(1, 1, 1, 0.26666668)
+position = Vector2(0, -15)
+texture = ExtResource("1_7jjua")
+hframes = 2
+vframes = 2
+
+[node name="SpriteInvalid" type="Sprite2D" parent="." unique_id=1227811218]
+modulate = Color(0.8388105, 0, 0.16951257, 0.26666668)
+position = Vector2(0, -15)
+texture = ExtResource("2_ai2in")
+
+[node name="Validator" type="RayCast2D" parent="." unique_id=1974776206]
+collision_mask = 33
+
+[node name="RoofCheck" type="RayCast2D" parent="." unique_id=814876573]
+position = Vector2(0, -30)
+target_position = Vector2(0, -150)
+collision_mask = 33
+
+[node name="Invalidator" type="Area2D" parent="." unique_id=2073219084]
+collision_layer = 0
+collision_mask = 39
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Invalidator" unique_id=1662206432]
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_xrivr")

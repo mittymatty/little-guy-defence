@@ -6,7 +6,7 @@ class_name ArmyMan extends CharacterBody2D
 @export var tracker_component: TrackerComponent
 @export var animation_component: AnimationComponent
 @export var gun_component: GunComponent
-
+@export var health_component: HealthComponent
 @export var drop_chute_raycast: RayCast2D
 @export var parachute: Sprite2D
 
@@ -17,6 +17,10 @@ func get_nearest_node_in_group(group):
 	var nodes = get_tree().get_nodes_in_group(group)
 	nodes.sort_custom(func(a,b): return a.global_position.distance_to(global_position)<b.global_position.distance_to(global_position) )
 	return nodes.front() if nodes.size() > 0 else null
+
+func _ready() -> void:
+	health_component.damaged.connect(on_damaged)
+	health_component.died.connect(on_died)
 
 func handle_parachute () -> void:
 	if drop_chute_raycast.is_colliding():
@@ -31,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 50
 		handle_parachute()
 	
+	health_component.handle_regen(delta)
 	movement_component.handle_horizontal_movement(self,0.0)
 	var should_reload: bool = gun_component.ammo == 0 or gun_component.ammo < gun_component.max_ammo and !tracker_component.tracker_target
 
@@ -44,3 +49,16 @@ func _physics_process(delta: float) -> void:
 
 	
 	move_and_slide()
+
+func on_damaged(_damage_taken: float) -> void:
+	damage_flash()
+
+func damage_flash() -> void:
+	var red_flash: Tween = create_tween()
+	var white_flash: Tween = create_tween()
+	
+	white_flash.tween_property(self,"modulate:v",1,0.1).from(15)
+	red_flash.tween_property(self, "modulate:s", 0, 0.1).from(15)
+
+func on_died () -> void:
+	queue_free()

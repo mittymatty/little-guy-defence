@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://ddnaujh8g10oe" path="res://scenes/components/tracker_component.tscn" id="6_egd3g"]
 [ext_resource type="Texture2D" uid="uid://da8yohu5i4tk8" path="res://assets/toy soldier.png" id="7_vr6e3"]
 [ext_resource type="Texture2D" uid="uid://ba8a4wcdcst1w" path="res://assets/parachute.png" id="7_xefxo"]
+[ext_resource type="PackedScene" uid="uid://cjro72gvhep3e" path="res://scenes/components/health_component.tscn" id="8_6jgr1"]
 [ext_resource type="Texture2D" uid="uid://c4v42k0h04cyx" path="res://assets/pistol.png" id="8_xefxo"]
 [ext_resource type="PackedScene" uid="uid://ckbwe46oi0hce" path="res://scenes/reload_bar.tscn" id="11_rjri2"]
+[ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/ui/health_bar.tscn" id="13_qxc4t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vr6e3"]
 radius = 5.0
@@ -19,16 +21,21 @@ radius = 5.0
 particle_flag_disable_z = true
 spread = 90.0
 
-[node name="ArmyMan" type="CharacterBody2D" unique_id=365000319 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "animation_component", "gun_component", "drop_chute_raycast", "parachute")]
-collision_layer = 0
+[node name="ArmyMan" type="CharacterBody2D" unique_id=365000319 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "animation_component", "gun_component", "health_component", "drop_chute_raycast", "parachute")]
+collision_layer = 2
 script = ExtResource("1_txgrc")
 movement_component = NodePath("Components/MovementComponent")
 gravity_component = NodePath("Components/GravityComponent")
 tracker_component = NodePath("Components/TrackerComponent")
 animation_component = NodePath("Components/AnimationComponent")
 gun_component = NodePath("Components/GunComponent")
+health_component = NodePath("Components/HealthComponent")
 drop_chute_raycast = NodePath("DropChuteRaycast")
 parachute = NodePath("Visuals/Parachute")
+
+[node name="HealthRegenDelay" type="Timer" parent="." unique_id=1501705794]
+wait_time = 4.0
+one_shot = true
 
 [node name="Components" type="Node" parent="." unique_id=15715907]
 
@@ -40,10 +47,12 @@ parachute = NodePath("Visuals/Parachute")
 bullet = ExtResource("5_egd3g")
 gun_visuals = NodePath("../../Visuals/Gun")
 muzzle = NodePath("../../Visuals/Gun/Muzzle")
+bullet_damage = 8.0
+bullet_speed = 350.0
 max_ammo = 5
 
 [node name="CooldownTimer" parent="Components/GunComponent" index="0" unique_id=406347045]
-wait_time = 0.5
+wait_time = 1.0
 
 [node name="ReloadTimer" parent="Components/GunComponent" index="1" unique_id=343490544]
 wait_time = 3.0
@@ -53,6 +62,11 @@ nodes_to_flip = [NodePath("../../Visuals")]
 
 [node name="TrackerComponent" parent="Components" unique_id=1220211303 node_paths=PackedStringArray("tracker") instance=ExtResource("6_egd3g")]
 tracker = NodePath("../..")
+
+[node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body", "regen_delay_timer") instance=ExtResource("8_6jgr1")]
+knockback_multiplier = 0.0
+body = NodePath("../..")
+regen_delay_timer = NodePath("../../HealthRegenDelay")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1694800844]
 
@@ -77,7 +91,7 @@ position = Vector2(5, -1)
 shape = SubResource("CapsuleShape2D_vr6e3")
 
 [node name="DropChuteRaycast" type="RayCast2D" parent="." unique_id=1979894663]
-target_position = Vector2(0, 60)
+target_position = Vector2(0, 52)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2109886639]
 visible = false
@@ -86,6 +100,13 @@ process_material = SubResource("ParticleProcessMaterial_hy6xw")
 
 [node name="ReloadBar" parent="." unique_id=1286998321 node_paths=PackedStringArray("gun_component") instance=ExtResource("11_rjri2")]
 visible = true
+offset_top = -21.0
+offset_bottom = -17.0
 gun_component = NodePath("../Components/GunComponent")
+
+[node name="HealthBar" parent="." unique_id=1492475502 node_paths=PackedStringArray("body") instance=ExtResource("13_qxc4t")]
+offset_top = -25.0
+offset_bottom = -23.0
+body = NodePath("..")
 
 [editable path="Components/GunComponent"]
