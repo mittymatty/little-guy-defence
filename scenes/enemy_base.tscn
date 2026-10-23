@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dolv0ui3en5r3" path="res://scenes/components/jump_detector_component.tscn" id="7_yt5vg"]
 [ext_resource type="PackedScene" uid="uid://brjdkg4eghgpa" path="res://scenes/components/animation_component.tscn" id="8_yt5vg"]
 
-[node name="EnemyBase" type="CharacterBody2D" unique_id=733239099 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "health_component", "jump_component", "jump_detector_component", "animation_component")]
+[node name="EnemyBase" type="CharacterBody2D" unique_id=733239099 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "health_component", "jump_component", "jump_detector_component", "animation_component") groups=["enemies"]]
 collision_layer = 4
 script = ExtResource("1_xuskm")
 movement_component = NodePath("Components/MovementComponent")

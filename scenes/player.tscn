@@ -100,7 +100,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0.3019608)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2wvv"]
 bg_color = Color(0.6748146, 0.67481464, 0.6748144, 1)
 
-[node name="player" type="CharacterBody2D" unique_id=1133307836 node_paths=PackedStringArray("movement_component", "jump_component", "input_component", "gravity_component", "gun_component", "health_component", "animation_component")]
+[node name="player" type="CharacterBody2D" unique_id=1133307836 node_paths=PackedStringArray("movement_component", "jump_component", "input_component", "gravity_component", "gun_component", "health_component", "animation_component") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_g2els")
 movement_component = NodePath("Components/MovementComponent")
@@ -113,13 +113,13 @@ animation_component = NodePath("Components/AnimationComponent")
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=1210393260]
 z_index = 1
-position = Vector2(0, -6)
+position = Vector2(0, -2)
 texture = ExtResource("2_d2wvv")
 centered = false
-offset = Vector2(-12, -10)
+offset = Vector2(-18, -16)
 
 [node name="Muzzle" type="Marker2D" parent="Gun" unique_id=1058219260]
-position = Vector2(17, 5)
+position = Vector2(12, -0.5)
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
 

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://7slsrx602p7n" path="res://scenes/game_ui.tscn" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cur2g8yo18jiu" path="res://assets/BlackBackground.png" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dlvawo4t42v30" path="res://scenes/player.tscn" id="2_w8frs"]
+[ext_resource type="PackedScene" uid="uid://0cnw5elr0knt" path="res://scenes/enemy_spawner.tscn" id="4_2r41h"]
 [ext_resource type="PackedScene" uid="uid://6g6u2vp8pp55" path="res://scenes/speedy_enemy.tscn" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://cwvbinbhvljq5" path="res://scenes/BasicEnemy.tscn" id="5_ppgk2"]
 
@@ -11,9 +12,9 @@ size = Vector2(13.058441, 20)
 
 [node name="Level" type="Node2D" unique_id=1049619043]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044881245]
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=1671845964]
 
-[node name="Game UI" parent="CanvasLayer" unique_id=1426189323 node_paths=PackedStringArray("player") instance=ExtResource("1_mx8sn")]
+[node name="Game UI" parent="GameUI" unique_id=1426189323 node_paths=PackedStringArray("player") instance=ExtResource("1_mx8sn")]
 player = NodePath("../../player")
 
 [node name="Floor" type="Sprite2D" parent="." unique_id=2028888874]
@@ -47,14 +48,6 @@ rotation = -3.1415925
 scale = Vector2(102.666664, 1)
 shape = SubResource("RectangleShape2D_w7c3h")
 
-[node name="BasicScene" parent="." unique_id=1974758763 node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
-position = Vector2(222, 528)
-player = NodePath("../player")
-
-[node name="BasicScene2" parent="." unique_id=733239099 node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
-position = Vector2(230, 472)
-player = NodePath("../player")
-
-[node name="SpeedyEnemy" parent="." unique_id=1665952800 node_paths=PackedStringArray("player") instance=ExtResource("5_2r41h")]
-position = Vector2(343, 458)
-player = NodePath("../player")
+[node name="EnemySpawner" parent="." unique_id=904174963 instance=ExtResource("4_2r41h")]
+position = Vector2(183, 509)
+enemies_left_to_spawn = Array[PackedScene]([ExtResource("5_ppgk2"), ExtResource("5_ppgk2"), ExtResource("5_2r41h")])
