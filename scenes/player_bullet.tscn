@@ -3,29 +3,29 @@
 [ext_resource type="Script" uid="uid://ca7xqcpviq8o1" path="res://scripts/bullet.gd" id="1_y25gk"]
 [ext_resource type="Texture2D" uid="uid://c1quce5hayvtl" path="res://assets/bullet.png" id="2_y25gk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13qdw"]
-radius = 2.0
-height = 12.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_46jqs"]
+radius = 1.5
+height = 11.0
 
-[node name="Bullet" type="Area2D" unique_id=2109893616]
+[node name="Player_Bullet" type="Area2D" unique_id=2109893616]
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_y25gk")
 
 [node name="Visuals" type="Sprite2D" parent="." unique_id=1241507613]
 rotation = 0.008984804
-scale = Vector2(0.5, 0.18025123)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_y25gk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2009285790]
-position = Vector2(-1, 0)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_13qdw")
 
 [node name="LifeTimer" type="Timer" parent="." unique_id=765117176]
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1444561498]
+position = Vector2(-2, -0.75)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_46jqs")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

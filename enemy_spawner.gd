@@ -17,7 +17,7 @@ func spawn_enemy() -> void:
 		var next_enemy: PackedScene = enemies_left_to_spawn.front()
 		var new_enemy: Enemy = next_enemy.instantiate()
 		new_enemy.global_position = global_position
-		get_tree().root.add_child(new_enemy)
+		get_tree().root.add_child.call_deferred(new_enemy)
 		enemy_created.emit(new_enemy)
 		await get_tree().create_timer(0.25).timeout
 	
