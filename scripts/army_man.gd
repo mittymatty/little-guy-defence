@@ -23,6 +23,7 @@ func _ready() -> void:
 	health_component.died.connect(on_died)
 
 func handle_parachute () -> void:
+	parachute.visible = true
 	if drop_chute_raycast.is_colliding():
 		is_parachute_attached = false
 		parachute.visible = false

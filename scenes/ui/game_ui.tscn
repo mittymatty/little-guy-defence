@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c3yc434c1kxo8" path="res://assets/blocks.png" id="4_qrkc0"]
 [ext_resource type="Texture2D" uid="uid://oks2sxp1t45s" path="res://assets/box_9patch.png" id="4_ru5ln"]
 [ext_resource type="Texture2D" uid="uid://gatfbwy2d0ov" path="res://assets/saluting soldier.png" id="6_v1bdg"]
+[ext_resource type="Resource" uid="uid://cnhk32lv3frjh" path="res://resources/pistol_trooper.tres" id="7_yvtb5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u001w"]
 font = ExtResource("2_bma8u")
@@ -37,31 +38,31 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Vitals" unique_id=836613608]
+[node name="Right" type="VBoxContainer" parent="Vitals" unique_id=836613608]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="AmmoCounter" type="Label" parent="Vitals/VBoxContainer" unique_id=687502012]
+[node name="AmmoCounter" type="Label" parent="Vitals/Right" unique_id=687502012]
 layout_mode = 2
 text = "Ammo: 10/10"
 label_settings = SubResource("LabelSettings_u001w")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Vitals" unique_id=1740020079]
+[node name="Left" type="VBoxContainer" parent="Vitals" unique_id=1740020079]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="HealthBar" parent="Vitals/VBoxContainer2" unique_id=1492475502 instance=ExtResource("2_u001w")]
+[node name="HealthBar" parent="Vitals/Left" unique_id=1492475502 instance=ExtResource("2_u001w")]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
 always_visible = true
 
-[node name="Blocks" type="HBoxContainer" parent="Vitals" unique_id=460445105]
+[node name="Middle" type="HBoxContainer" parent="Vitals" unique_id=460445105]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Vitals/Blocks" unique_id=1753145639]
+[node name="TextureRect" type="TextureRect" parent="Vitals/Middle" unique_id=1753145639]
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
 offset_transform_enabled = true
@@ -70,7 +71,7 @@ offset_transform_scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_qrkc0")
 expand_mode = 2
 
-[node name="Count" type="Label" parent="Vitals/Blocks" unique_id=1721957325]
+[node name="BlocksCount" type="Label" parent="Vitals/Middle" unique_id=1721957325]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -81,7 +82,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TroopSelect" type="MarginContainer" parent="." unique_id=1224922898]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -121,17 +121,9 @@ alignment = 1
 
 [node name="TroopButton" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=424994559 instance=ExtResource("4_fct72")]
 layout_mode = 2
+troop_data = ExtResource("7_yvtb5")
 
-[node name="TroopButton2" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=908972925 instance=ExtResource("4_fct72")]
-layout_mode = 2
-
-[node name="TroopButton3" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=500584907 instance=ExtResource("4_fct72")]
-layout_mode = 2
-
-[node name="TroopButton4" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=2117371545 instance=ExtResource("4_fct72")]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="TroopSelect/VBoxContainer" unique_id=1190155313]
+[node name="ContinueButton" type="Button" parent="TroopSelect/VBoxContainer" unique_id=1190155313]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

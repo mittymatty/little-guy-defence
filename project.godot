@@ -19,6 +19,7 @@ config/icon="uid://isi48lc8g4ou"
 
 Settings="*uid://b5ay7rurrb1fl"
 PlayerStatus="*uid://d08ibnlraesl4"
+SignalBus="*uid://8fqfcoam0cvo"
 
 [display]
 

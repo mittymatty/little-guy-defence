@@ -71,6 +71,7 @@ regen_delay_timer = NodePath("../../HealthRegenDelay")
 [node name="Visuals" type="Node2D" parent="." unique_id=1694800844]
 
 [node name="Parachute" type="Sprite2D" parent="Visuals" unique_id=791557283]
+visible = false
 position = Vector2(0, -22)
 texture = ExtResource("7_xefxo")
 
@@ -97,12 +98,12 @@ position = Vector2(0, -21)
 process_material = SubResource("ParticleProcessMaterial_hy6xw")
 
 [node name="ReloadBar" parent="." unique_id=1286998321 node_paths=PackedStringArray("gun_component") instance=ExtResource("11_rjri2")]
-visible = true
 offset_top = -21.0
 offset_bottom = -17.0
 gun_component = NodePath("../Components/GunComponent")
 
 [node name="HealthBar" parent="." unique_id=1492475502 node_paths=PackedStringArray("body") instance=ExtResource("13_qxc4t")]
+visible = false
 offset_top = -25.0
 offset_bottom = -23.0
 body = NodePath("..")

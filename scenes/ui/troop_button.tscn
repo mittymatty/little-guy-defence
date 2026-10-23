@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://l2qod4amlhie" path="res://assets/box_9patch_click.png" id="2_6e811"]
 [ext_resource type="Texture2D" uid="uid://isi48lc8g4ou" path="res://assets/front soldier.png" id="2_h40kk"]
 [ext_resource type="Texture2D" uid="uid://deojfiamdref8" path="res://assets/box_9patch_hover.png" id="3_27umi"]
+[ext_resource type="Script" uid="uid://cik0m5uqd5ohf" path="res://scripts/troop_button.gd" id="4_tf3mv"]
 [ext_resource type="Texture2D" uid="uid://c3yc434c1kxo8" path="res://assets/blocks.png" id="5_wvsrj"]
 [ext_resource type="FontFile" uid="uid://bh7q5xrw6mw0i" path="res://assets/fonts/YOSIA-SCRIBBLE-TIGHT.ttf" id="6_tf3mv"]
 
@@ -14,6 +15,11 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_c0upb"]
 font = ExtResource("6_tf3mv")
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_cgqta"]
+font = ExtResource("6_tf3mv")
+font_size = 60
+outline_size = 6
 
 [node name="TroopButton" type="TextureButton" unique_id=424994559]
 custom_minimum_size = Vector2(120, 120)
@@ -33,6 +39,7 @@ texture_normal = ExtResource("1_6e811")
 texture_pressed = ExtResource("2_6e811")
 texture_hover = ExtResource("3_27umi")
 stretch_mode = 0
+script = ExtResource("4_tf3mv")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=302820669]
 layout_mode = 1
@@ -76,7 +83,7 @@ label_settings = SubResource("LabelSettings_hy6xw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="." unique_id=1323786095]
+[node name="NameLabel" type="Label" parent="." unique_id=1323786095]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -90,7 +97,25 @@ size_flags_horizontal = 4
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, 15)
 theme_override_font_sizes/font_size = 90
-text = "Pistol"
+text = "Name"
 label_settings = SubResource("LabelSettings_c0upb")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Quantity" type="Label" parent="." unique_id=724037333]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "x2"
+label_settings = SubResource("LabelSettings_cgqta")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

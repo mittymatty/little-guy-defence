@@ -33,6 +33,9 @@ func animate () -> void:
 func handle_click_behaviour (delta: float) -> void:
 	var shooting: bool = PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.SHOOT
 	var placing: bool = PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.PLACE
+	var inactive: bool = PlayerStatus.current_click_mode == PlayerStatus.CLICK_MODE.NONE
+	
+	if inactive: return
 	
 	if shooting:
 		placement_cursor.visible = false
