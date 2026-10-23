@@ -9,10 +9,13 @@ class_name Enemy extends CharacterBody2D
 @export var jump_detector_component: JumpDetectorComponent
 @export var animation_component: AnimationComponent
 
+var player: CharacterBody2D
+
 func _ready() -> void:
 	health_component.damaged.connect(on_damaged)
 	health_component.died.connect(on_died)
-	tracker_component.tracker_target = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player")
+	tracker_component.tracker_target = player
 
 func on_damaged(_damage_taken: float) -> void:
 	damage_flash()

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cxny1k133xbwk"]
+
+[ext_resource type="Texture2D" uid="uid://c1quce5hayvtl" path="res://assets/bullet.png" id="1_d2qol"]
+[ext_resource type="Script" uid="uid://ca7xqcpviq8o1" path="res://scripts/bullet.gd" id="1_qx7rs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qx7rs"]
+radius = 1.5
+height = 11.0
+
+[node name="EnemyBullet" type="Area2D" unique_id=927224822]
+collision_layer = 16
+collision_mask = 35
+script = ExtResource("1_qx7rs")
+
+[node name="Visuals" type="Sprite2D" parent="." unique_id=1870666297]
+modulate = Color(0.7520863, 0.11607828, 0, 1)
+rotation = 0.008984804
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_d2qol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012637762]
+position = Vector2(-2, -0.75)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qx7rs")
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=604137484]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
