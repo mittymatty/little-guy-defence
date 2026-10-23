@@ -9,7 +9,7 @@ class_name Player extends CharacterBody2D
 @export var health_component: HealthComponent
 @export var animation_component: AnimationComponent
 
-@onready var gun: Sprite2D = $Gun
+@onready var gun: Sprite2D = $Visuals/Gun
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func on_died () -> void:

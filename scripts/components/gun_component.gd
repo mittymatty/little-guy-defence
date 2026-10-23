@@ -15,16 +15,27 @@ class_name GunComponent extends Node
 var ammo: int
 
 signal fired
+signal reload
+signal ammo_changed
 
 func _ready() -> void:
 	ammo = max_ammo
+	ammo_changed.emit()
 
-func handle_gun (delta: float, target_pos: Vector2, wants_to_shoot: bool, _wants_to_reload: bool) -> void:
+func handle_gun (delta: float, target_pos: Vector2, wants_to_shoot: bool, wants_to_reload: bool) -> void:
 	rotate_to_target(delta, target_pos)
-	if wants_to_shoot and cooldown_timer.is_stopped() and ammo > 0:
-		
+	if !timers_are_stopped(): return
+	if wants_to_shoot and ammo > 0:
+		ammo -= 1
+		ammo_changed.emit()
 		cooldown_timer.start()
 		shoot()
+	elif wants_to_reload and ammo < max_ammo:
+		reload.emit()
+		reload_gun()
+
+func timers_are_stopped () -> bool:
+	return cooldown_timer.is_stopped() and reload_timer.is_stopped()
 
 func rotate_to_target (_delta: float, target_pos: Vector2) -> void:
 	gun_visuals.look_at(target_pos)
@@ -34,3 +45,9 @@ func shoot () -> void:
 	get_tree().root.add_child(b)
 	b.transform = muzzle.global_transform
 	fired.emit()
+
+func reload_gun () -> void:
+	reload_timer.start()
+	await reload_timer.timeout
+	ammo = max_ammo
+	ammo_changed.emit()

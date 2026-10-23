@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlvawo4t42v30"]
 
 [ext_resource type="Script" uid="uid://cldgyl7sb7pnn" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://b3xt6f73gcch1" path="res://icon.svg" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://da8yohu5i4tk8" path="res://assets/toy soldier.png" id="2_3v2ag"]
 [ext_resource type="PackedScene" uid="uid://ba7t6qyncp8sv" path="res://scenes/components/advanced_jump_component.tscn" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://cy1034rgijxmi" path="res://scenes/components/movement_component.tscn" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bmfvsuo8g21cg" path="res://scenes/components/input_component.tscn" id="5_fjrip"]
@@ -111,9 +111,19 @@ animation_component = NodePath("Components/AnimationComponent")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
 
+[node name="Gun" type="Sprite2D" parent="Visuals" unique_id=1210393260]
+z_index = 1
+texture = ExtResource("7_fjrip")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="Muzzle" type="Marker2D" parent="Visuals/Gun" unique_id=1058219260]
+position = Vector2(5.7599998, -3.973643e-08)
+
 [node name="Body" type="Sprite2D" parent="Visuals" unique_id=353892764]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_g2els")
+texture = ExtResource("2_3v2ag")
+hframes = 2
+vframes = 2
 
 [node name="Components" type="Node" parent="." unique_id=1626316903]
 
@@ -130,8 +140,8 @@ speed = 120.0
 
 [node name="GunComponent" parent="Components" unique_id=769225365 node_paths=PackedStringArray("gun_visuals", "muzzle") instance=ExtResource("6_smehm")]
 bullet = ExtResource("7_d2wvv")
-gun_visuals = NodePath("../../Gun")
-muzzle = NodePath("../../Gun/Muzzle")
+gun_visuals = NodePath("../../Visuals/Gun")
+muzzle = NodePath("../../Visuals/Gun/Muzzle")
 
 [node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body") instance=ExtResource("7_ur7pv")]
 body = NodePath("../..")
@@ -149,17 +159,6 @@ zoom = Vector2(1.5, 1.5)
 [node name="Sounds" type="Node2D" parent="." unique_id=1689226807]
 
 [node name="Land" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1104987725]
-
-[node name="Gun" type="Sprite2D" parent="." unique_id=1210393260]
-z_index = 1
-position = Vector2(9.536743e-07, 5.9604645e-08)
-scale = Vector2(4.1666665, 1.5)
-texture = ExtResource("7_fjrip")
-centered = false
-offset = Vector2(0, -2)
-
-[node name="Muzzle" type="Marker2D" parent="Gun" unique_id=1058219260]
-position = Vector2(5.7599998, -3.973643e-08)
 
 [node name="ReloadBar" parent="." unique_id=1492475502 instance=ExtResource("10_y4r1p")]
 visible = false

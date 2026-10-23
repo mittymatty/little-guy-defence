@@ -38,7 +38,7 @@ custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
 always_visible = true
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=687502012]
+[node name="AmmoCounter" type="Label" parent="MarginContainer/VBoxContainer" unique_id=687502012]
 layout_mode = 2
 text = "Ammo: 10/10"
 label_settings = SubResource("LabelSettings_u001w")
