@@ -10,7 +10,11 @@ class_name GunComponent extends Node
 @export var reload_timer: Timer
 
 @export_subgroup("Configuration")
+@export var bullet_damage: float = 10.0
+@export var bullet_speed: float = 400.0
 @export var max_ammo: int = 10
+@export var bullets_per_shot: int = 1
+@export var maximum_spread_angle: float = 0.0
 
 var ammo: int
 
@@ -41,9 +45,15 @@ func rotate_to_target (_delta: float, target_pos: Vector2) -> void:
 	gun_visuals.look_at(target_pos)
 
 func shoot () -> void:
-	var b = bullet.instantiate()
-	get_tree().root.add_child(b)
-	b.transform = muzzle.global_transform
+	for i in range(bullets_per_shot):
+		var angle_offset = lerp(-maximum_spread_angle, maximum_spread_angle, float(i)/bullets_per_shot)
+		var b: Bullet = bullet.instantiate()
+		print(angle_offset)
+		b.damage = bullet_damage
+		b.speed = bullet_speed
+		b.transform = muzzle.global_transform
+		b.rotation += angle_offset
+		get_tree().root.add_child(b)
 	fired.emit()
 
 func reload_gun () -> void:

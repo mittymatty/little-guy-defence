@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ckbwe46oi0hce"]
+
+[ext_resource type="Script" uid="uid://di5r3mjmwtc65" path="res://scripts/reload_bar.gd" id="1_o8rq8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy6xw"]
+bg_color = Color(0.6, 0.6, 0.6, 0.3019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2wvv"]
+bg_color = Color(0.6748146, 0.67481464, 0.6748144, 1)
+
+[node name="ReloadBar" type="ProgressBar" unique_id=1286998321 node_paths=PackedStringArray("gun_component")]
+visible = false
+offset_left = -11.0
+offset_top = -24.0
+offset_right = 11.0
+offset_bottom = -20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hy6xw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d2wvv")
+value = 50.0
+show_percentage = false
+script = ExtResource("1_o8rq8")
+gun_component = NodePath("")

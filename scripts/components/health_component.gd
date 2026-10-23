@@ -4,6 +4,7 @@ class_name HealthComponent extends Node
 @export var max_health: float = 100.0
 @export var knockback_multiplier: float = 1.0
 @export var invulnerable: bool = false
+@export var i_time: bool = false
 
 @export_subgroup("Nodes")
 @export var body: PhysicsBody2D
@@ -39,7 +40,7 @@ func get_is_affectable() -> bool:
 
 func take_damage(damage: float, knockback: Vector2, _from: Vector2) -> void:
 	if !get_is_affectable(): return
-	invincibility_timer.start()
+	if i_time: invincibility_timer.start()
 	
 	affect_health(-damage)
 	damaged.emit(damage)

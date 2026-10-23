@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://7slsrx602p7n" path="res://scenes/ui/game_ui.tscn" id="1_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://dlvawo4t42v30" path="res://scenes/player.tscn" id="2_w8frs"]
 [ext_resource type="PackedScene" uid="uid://0cnw5elr0knt" path="res://scenes/enemies/enemy_spawner.tscn" id="4_2r41h"]
-[ext_resource type="PackedScene" uid="uid://6g6u2vp8pp55" path="res://scenes/enemies/speedy_enemy.tscn" id="5_2r41h"]
+[ext_resource type="PackedScene" uid="uid://cwvbinbhvljq5" path="res://scenes/enemies/basic_enemy.tscn" id="4_klq6b"]
 [ext_resource type="Texture2D" uid="uid://j3upnu11cwqv" path="res://assets/images (2).jpg" id="6_2r41h"]
+[ext_resource type="PackedScene" uid="uid://dhvuhdfdvg04k" path="res://scenes/friendlies/shotgun_army_man.tscn" id="7_klq6b"]
 [ext_resource type="PackedScene" uid="uid://c0v6l6r5fiqtr" path="res://scenes/friendlies/army_man.tscn" id="8_b121j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
@@ -30,7 +31,7 @@ shape = SubResource("RectangleShape2D_w7c3h")
 
 [node name="EnemySpawner" parent="." unique_id=904174963 instance=ExtResource("4_2r41h")]
 position = Vector2(183, 509)
-enemies_left_to_spawn = Array[PackedScene]([ExtResource("5_2r41h"), ExtResource("5_2r41h")])
+enemies_left_to_spawn = Array[PackedScene]([ExtResource("4_klq6b"), ExtResource("4_klq6b")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1186826975]
 offset_left = -1398.0
@@ -62,4 +63,7 @@ offset_bottom = 6040.0
 color = Color(0.03137255, 0.28627452, 0.44705883, 1)
 
 [node name="ArmyMan" parent="." unique_id=365000319 instance=ExtResource("8_b121j")]
-position = Vector2(282, 481)
+position = Vector2(1133, 403)
+
+[node name="ShotgunArmyMan" parent="." unique_id=323898171 instance=ExtResource("7_klq6b")]
+position = Vector2(317, 423)
