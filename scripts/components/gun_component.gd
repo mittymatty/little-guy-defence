@@ -35,7 +35,8 @@ func handle_gun (delta: float, target_pos: Vector2, wants_to_shoot: bool, wants_
 		cooldown_timer.start()
 		shoot()
 	elif wants_to_reload and ammo < max_ammo:
-		reload.emit()
+		reload_gun()
+	elif wants_to_shoot and ammo == 0:
 		reload_gun()
 
 func timers_are_stopped () -> bool:
@@ -56,6 +57,7 @@ func shoot () -> void:
 	fired.emit()
 
 func reload_gun () -> void:
+	reload.emit()
 	reload_timer.start()
 	await reload_timer.timeout
 	ammo = max_ammo

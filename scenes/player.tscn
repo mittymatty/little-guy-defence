@@ -115,7 +115,7 @@ visible = false
 position = Vector2(32, 14)
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1465007082]
-modulate = Color(0.42008227, 0.71570116, 0.34489974, 1)
+modulate = Color(0.24851388, 0.44207284, 0.20002952, 1)
 
 [node name="Body" type="Sprite2D" parent="Visuals" unique_id=353892764]
 texture = ExtResource("3_d2wvv")

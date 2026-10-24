@@ -46,7 +46,7 @@ func close_troop_selector () -> void:
 	troop_select.hide()
 
 func on_wave_change () -> void:
-	wave_count.text = "Wave: " + str(PlayerStatus.curent_wave)
+	wave_count.text = "Wave: " + str(PlayerStatus.current_wave)
 
 func on_refreshed () -> void:
 	if PlayerStatus.blocks >= PlayerStatus.current_refresh_cost:

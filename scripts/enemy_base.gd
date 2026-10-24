@@ -12,6 +12,7 @@ class_name Enemy extends CharacterBody2D
 var target: PhysicsBody2D
 
 func _ready() -> void:
+	PlayerStatus.active_enemies += 1
 	health_component.damaged.connect(on_damaged)
 	health_component.died.connect(on_died)
 	target = get_tree().get_first_node_in_group("target")
@@ -28,6 +29,7 @@ func damage_flash() -> void:
 	red_flash.tween_property(self, "modulate:s", 0, 0.1).from(15)
 
 func on_died () -> void:
+	PlayerStatus.active_enemies -= 1
 	queue_free()
 
 func _physics_process(delta: float) -> void:

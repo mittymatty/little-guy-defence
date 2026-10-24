@@ -35,7 +35,7 @@ drop_chute_raycast = NodePath("DropChuteRaycast")
 parachute = NodePath("Visuals/Parachute")
 
 [node name="HealthRegenDelay" type="Timer" parent="." unique_id=1501705794]
-wait_time = 4.0
+wait_time = 8.0
 one_shot = true
 
 [node name="Components" type="Node" parent="." unique_id=15715907]
@@ -65,11 +65,14 @@ nodes_to_flip = [NodePath("../../Visuals")]
 tracker = NodePath("../..")
 
 [node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body", "regen_delay_timer") instance=ExtResource("8_6jgr1")]
-max_health = 60.0
+max_health = 50.0
 knockback_multiplier = 0.1
 i_time = true
 body = NodePath("../..")
 regen_delay_timer = NodePath("../../HealthRegenDelay")
+
+[node name="I_timer" parent="Components/HealthComponent" index="0" unique_id=1350377943]
+wait_time = 0.04
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1694800844]
 
@@ -113,3 +116,4 @@ offset_bottom = -23.0
 body = NodePath("..")
 
 [editable path="Components/GunComponent"]
+[editable path="Components/HealthComponent"]

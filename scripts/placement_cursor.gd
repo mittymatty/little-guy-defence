@@ -12,9 +12,6 @@ func check_can_place () -> bool:
 	return true
 
 func place_troop () -> void:
-	if PlayerStatus.stored_troops.size() <= 0:
-		SignalBus.emit_begin_wave()
-		return
 	var troop_to_place: PackedScene = PlayerStatus.stored_troops.front()
 	var placed_troop: CharacterBody2D = troop_to_place.instantiate()
 	placed_troop.global_transform = global_transform
@@ -22,6 +19,10 @@ func place_troop () -> void:
 	get_tree().root.add_child.call_deferred(placed_troop,true)
 	if !Settings.expend_troops: return
 	PlayerStatus.stored_troops.pop_front()
+	
+	if PlayerStatus.stored_troops.size() <= 0:
+		SignalBus.emit_begin_wave()
+		return
 
 func handle_placement (wants_to_place: bool) -> void:
 	var can_place: bool = check_can_place()

@@ -58,6 +58,7 @@ size = Vector2(60.5, 6)
 
 [node name="Bedroom" type="Node2D" unique_id=602288621]
 script = ExtResource("1_4wfg3")
+waves = Array[PackedScene]([ExtResource("13_k5fq4")])
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=1170981993]
 
@@ -219,8 +220,6 @@ one_way_collision = true
 
 [node name="YellowTint" type="CanvasModulate" parent="." unique_id=1209719788]
 color = Color(0.93110514, 0.8208405, 0.6092211, 1)
-
-[node name="Wave1" parent="." unique_id=1465978578 instance=ExtResource("13_k5fq4")]
 
 [node name="Dalla" parent="." unique_id=641150435 instance=ExtResource("15_mk2nf")]
 position = Vector2(574, 237)
