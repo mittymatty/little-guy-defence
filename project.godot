@@ -39,6 +39,7 @@ folder_colors={
 
 player=""
 enemies=""
+target=""
 
 [input]
 
@@ -80,6 +81,7 @@ reload={
 2d_physics/layer_4="player_bullet"
 2d_physics/layer_5="enemy_bullet"
 2d_physics/layer_6="base"
+2d_physics/layer_7="dalla"
 
 [physics]
 

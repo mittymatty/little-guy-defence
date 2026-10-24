@@ -57,4 +57,5 @@ func take_damage(damage: float, knockback: Vector2, _from: Vector2) -> void:
 	if regen_delay_timer:
 		regen_delay_timer.start()
 	
-	body.velocity += knockback * knockback_multiplier
+	if "velocity" in body:
+		body.velocity += knockback * knockback_multiplier

@@ -125,22 +125,22 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TroopSelect/VBoxContainer/MarginContainer" unique_id=577876279]
+[node name="TroopButtonContainer" type="HBoxContainer" parent="TroopSelect/VBoxContainer/MarginContainer" unique_id=577876279]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="TroopButton" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=424994559 instance=ExtResource("4_fct72")]
+[node name="TroopButton" parent="TroopSelect/VBoxContainer/MarginContainer/TroopButtonContainer" unique_id=424994559 instance=ExtResource("4_fct72")]
 layout_mode = 2
 troop_data = ExtResource("7_yvtb5")
 
-[node name="TroopButton2" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=894711707 instance=ExtResource("4_fct72")]
+[node name="TroopButton2" parent="TroopSelect/VBoxContainer/MarginContainer/TroopButtonContainer" unique_id=894711707 instance=ExtResource("4_fct72")]
 layout_mode = 2
 troop_data = ExtResource("8_k7elv")
 
-[node name="TroopButton3" parent="TroopSelect/VBoxContainer/MarginContainer/HBoxContainer" unique_id=421401630 instance=ExtResource("4_fct72")]
+[node name="TroopButton3" parent="TroopSelect/VBoxContainer/MarginContainer/TroopButtonContainer" unique_id=421401630 instance=ExtResource("4_fct72")]
 layout_mode = 2
 troop_data = ExtResource("9_fftnl")
 

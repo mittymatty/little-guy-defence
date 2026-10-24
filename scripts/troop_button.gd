@@ -1,4 +1,4 @@
-extends TextureButton
+class_name TroopButton extends TextureButton
 
 @onready var price: Label = $HBoxContainer/Price
 @onready var quantity: Label = $Quantity

@@ -5,6 +5,7 @@ signal enter_shoot_mode
 signal begin_wave
 signal wave_ended
 signal blocks_changed
+signal game_over
 
 func emit_enter_placement_mode () -> void:
 	enter_placement_mode.emit()
@@ -20,3 +21,6 @@ func emit_wave_ended () -> void:
 
 func emit_blocks_changed() -> void:
 	blocks_changed.emit()
+
+func emit_game_over() -> void:
+	game_over.emit()

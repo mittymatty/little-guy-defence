@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://42xxk58b8nsf"]
+
+[ext_resource type="PackedScene" uid="uid://l67h7jwewftp" path="res://scenes/enemies/shooting_enemy.tscn" id="1_swia0"]
+[ext_resource type="Texture2D" uid="uid://bmqo20odvdxqp" path="res://assets/shotgun.png" id="2_8l5qr"]
+
+[node name="ShotgunEnemy" unique_id=733239099 instance=ExtResource("1_swia0")]
+
+[node name="Pistol" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="1" unique_id=289626248]
+texture = ExtResource("2_8l5qr")
+
+[node name="Muzzle" parent="Visuals/Pistol" index="0" unique_id=903518442]
+position = Vector2(12, -1.5)
+
+[node name="MovementComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="1" unique_id=275666189]
+speed = 110.0
+
+[node name="GunComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="7" unique_id=769225365]
+bullet_damage = 6.0
+bullet_speed = 350.0
+bullets_per_shot = 3
+maximum_spread_angle = 0.3

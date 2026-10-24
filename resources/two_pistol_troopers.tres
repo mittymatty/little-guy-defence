@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TroopData" format=3 uid="uid://cmgkv3do08y7p"]
+
+[ext_resource type="Script" uid="uid://d0ehi87n8i5lp" path="res://scripts/custom_resources/troop_data.gd" id="1_k0l3s"]
+[ext_resource type="PackedScene" uid="uid://c0v6l6r5fiqtr" path="res://scenes/friendlies/army_man.tscn" id="2_4fqm1"]
+
+[resource]
+script = ExtResource("1_k0l3s")
+troop_name = "Pistol"
+troop = ExtResource("2_4fqm1")
+troop_quantity = 2
+blocks_cost = 4
+metadata/_custom_type_script = "uid://d0ehi87n8i5lp"

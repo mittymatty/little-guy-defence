@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dwoarnchrrpbi"]
 
-[ext_resource type="Script" uid="uid://cbd3tob2yblcw" path="res://scenes/wave_handler.gd" id="1_4wfg3"]
+[ext_resource type="Script" uid="uid://cbd3tob2yblcw" path="res://scripts/wave_handler.gd" id="1_4wfg3"]
 [ext_resource type="PackedScene" uid="uid://dlvawo4t42v30" path="res://scenes/player.tscn" id="1_iw0c1"]
 [ext_resource type="Texture2D" uid="uid://bjgdid8u5lg2d" path="res://assets/table.png" id="2_tjgix"]
 [ext_resource type="Texture2D" uid="uid://d3irgr4f16p8h" path="res://assets/Untitled design (2).png" id="2_ui2oe"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cuc3uisyey1ea" path="res://assets/yellow x.png" id="11_4wfg3"]
 [ext_resource type="Texture2D" uid="uid://cbv8j5xwmuixe" path="res://assets/green 2.png" id="12_mk2nf"]
 [ext_resource type="PackedScene" uid="uid://dhvylm8fkrtvk" path="res://scenes/waves/wave_1.tscn" id="13_k5fq4"]
+[ext_resource type="PackedScene" uid="uid://baplnbkfvyk8s" path="res://scenes/dalla.tscn" id="15_mk2nf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(3019, 48)
@@ -220,3 +221,6 @@ one_way_collision = true
 color = Color(0.93110514, 0.8208405, 0.6092211, 1)
 
 [node name="Wave1" parent="." unique_id=1465978578 instance=ExtResource("13_k5fq4")]
+
+[node name="Dalla" parent="." unique_id=641150435 instance=ExtResource("15_mk2nf")]
+position = Vector2(574, 237)

@@ -47,8 +47,6 @@ func _physics_process(delta: float) -> void:
 		last_target_pos = tracker_component.tracker_target.global_position
 	elif should_reload:
 			gun_component.handle_gun(delta,last_target_pos,false,true)
-
-	
 	move_and_slide()
 
 func on_damaged(_damage_taken: float) -> void:

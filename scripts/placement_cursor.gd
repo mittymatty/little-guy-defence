@@ -12,7 +12,9 @@ func check_can_place () -> bool:
 	return true
 
 func place_troop () -> void:
-	if PlayerStatus.stored_troops.size() <= 0: return
+	if PlayerStatus.stored_troops.size() <= 0:
+		SignalBus.emit_begin_wave()
+		return
 	var troop_to_place: PackedScene = PlayerStatus.stored_troops.front()
 	var placed_troop: CharacterBody2D = troop_to_place.instantiate()
 	placed_troop.global_transform = global_transform

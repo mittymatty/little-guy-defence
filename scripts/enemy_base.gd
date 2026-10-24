@@ -9,13 +9,13 @@ class_name Enemy extends CharacterBody2D
 @export var jump_detector_component: JumpDetectorComponent
 @export var animation_component: AnimationComponent
 
-var player: CharacterBody2D
+var target: PhysicsBody2D
 
 func _ready() -> void:
 	health_component.damaged.connect(on_damaged)
 	health_component.died.connect(on_died)
-	player = get_tree().get_first_node_in_group("player")
-	tracker_component.tracker_target = player
+	target = get_tree().get_first_node_in_group("target")
+	tracker_component.tracker_target = target
 
 func on_damaged(_damage_taken: float) -> void:
 	damage_flash()
@@ -31,10 +31,10 @@ func on_died () -> void:
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	var should_jump: bool = jump_detector_component.check_if_should_jump() or (tracker_component.target_is_above and tracker_component.distance_from_target < tracker_component.start_tracking_distance * 0.25)
+	var should_jump: bool = tracker_component.target_is_above and tracker_component.distance_from_target < 250
 	gravity_component.handle_gravity(self,delta)
 	movement_component.handle_horizontal_movement(self,tracker_component.movement_horizontal)
-	jump_component.handle_jump(self,should_jump)
+	jump_component.handle_jump(self,jump_detector_component.check_if_should_jump() or should_jump)
 	animation_component.handle_horizontal_flip(velocity.x,false)
 	
 	move_and_slide()

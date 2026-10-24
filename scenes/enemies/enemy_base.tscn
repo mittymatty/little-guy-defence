@@ -12,6 +12,7 @@
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=733239099 node_paths=PackedStringArray("movement_component", "gravity_component", "tracker_component", "health_component", "jump_component", "jump_detector_component", "animation_component") groups=["enemies"]]
 collision_layer = 4
+collision_mask = 33
 script = ExtResource("1_xuskm")
 movement_component = NodePath("Components/MovementComponent")
 gravity_component = NodePath("Components/GravityComponent")
@@ -34,7 +35,7 @@ body = NodePath("../..")
 
 [node name="TrackerComponent" parent="Components" unique_id=1220211303 node_paths=PackedStringArray("tracker") instance=ExtResource("4_yt5vg")]
 tracker = NodePath("../..")
-start_tracking_distance = 1000.0
+start_tracking_distance = 5000.0
 
 [node name="GravityComponent" parent="Components" unique_id=827299611 instance=ExtResource("5_7t5mr")]
 
