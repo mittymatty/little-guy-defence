@@ -11,7 +11,7 @@ func on_ammo_changed () -> void:
 	ammo_counter.text = "Ammo: " + str(gun_component.ammo) + "/" + str(gun_component.max_ammo)
 
 func on_blocks_changed () -> void:
-	blocks_count.text = str(PlayerStatus.blocks)
+	blocks_count.text = ": " + str(PlayerStatus.blocks)
 
 func open_troop_selector () -> void:
 	troop_select.show()
@@ -26,6 +26,7 @@ func _ready() -> void:
 	on_ammo_changed()
 	on_blocks_changed()
 	open_troop_selector()
+	
 	continue_button.pressed.connect(close_troop_selector)
 	SignalBus.blocks_changed.connect(on_blocks_changed)
 	gun_component.ammo_changed.connect(on_ammo_changed)
