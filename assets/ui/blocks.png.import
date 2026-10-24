@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gatfbwy2d0ov"
-path="res://.godot/imported/saluting soldier.png-f4160cff18653c6f55140d017d7bc748.ctex"
+uid="uid://c3yc434c1kxo8"
+path="res://.godot/imported/blocks.png-30f55659444c2fef52e1bfcd41d24cfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/saluting soldier.png"
-dest_files=["res://.godot/imported/saluting soldier.png-f4160cff18653c6f55140d017d7bc748.ctex"]
+source_file="res://assets/ui/blocks.png"
+dest_files=["res://.godot/imported/blocks.png-30f55659444c2fef52e1bfcd41d24cfa.ctex"]
 
 [params]
 

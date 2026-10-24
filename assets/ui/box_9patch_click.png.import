@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckuge1jmo5w1l"
-path="res://.godot/imported/button cardboard.png-59be5abfc1a3394add46c53a1a8f05a4.ctex"
+uid="uid://l2qod4amlhie"
+path="res://.godot/imported/box_9patch_click.png-1268c904c5821993c99edef48f77009d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button cardboard.png"
-dest_files=["res://.godot/imported/button cardboard.png-59be5abfc1a3394add46c53a1a8f05a4.ctex"]
+source_file="res://assets/ui/box_9patch_click.png"
+dest_files=["res://.godot/imported/box_9patch_click.png-1268c904c5821993c99edef48f77009d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bio2ck3bpsm53"
-path="res://.godot/imported/Untitled_design__3_-removebg-preview.png-a167019bc73ad882854567c0f021a17d.ctex"
+uid="uid://gatfbwy2d0ov"
+path="res://.godot/imported/saluting_soldier.png-f21dd7a87cafafca1860a98cffa0cdc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Untitled_design__3_-removebg-preview.png"
-dest_files=["res://.godot/imported/Untitled_design__3_-removebg-preview.png-a167019bc73ad882854567c0f021a17d.ctex"]
+source_file="res://assets/saluting_soldier.png"
+dest_files=["res://.godot/imported/saluting_soldier.png-f21dd7a87cafafca1860a98cffa0cdc5.ctex"]
 
 [params]
 

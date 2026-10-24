@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuc3uisyey1ea"
-path="res://.godot/imported/yellow x.png-22c060b9f22e7e76d961ffe7f4553bc0.ctex"
+uid="uid://dvid5ncgrbs3"
+path="res://.godot/imported/MITTY & GUMPY.jpg-92d0fe19171cd411c6e1653afbd86ad6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/yellow x.png"
-dest_files=["res://.godot/imported/yellow x.png-22c060b9f22e7e76d961ffe7f4553bc0.ctex"]
+source_file="res://assets/ui/MITTY & GUMPY.jpg"
+dest_files=["res://.godot/imported/MITTY & GUMPY.jpg-92d0fe19171cd411c6e1653afbd86ad6.ctex"]
 
 [params]
 

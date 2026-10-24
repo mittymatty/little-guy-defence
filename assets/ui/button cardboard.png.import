@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8l1njh4ojyan"
-path="res://.godot/imported/intro.jpeg-d661e3cfde424ee76b23c9318d9c9e24.ctex"
+uid="uid://ckuge1jmo5w1l"
+path="res://.godot/imported/button cardboard.png-f23deaef3c2b271a4d1fcb9d7b67ee1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/intro.jpeg"
-dest_files=["res://.godot/imported/intro.jpeg-d661e3cfde424ee76b23c9318d9c9e24.ctex"]
+source_file="res://assets/ui/button cardboard.png"
+dest_files=["res://.godot/imported/button cardboard.png-f23deaef3c2b271a4d1fcb9d7b67ee1f.ctex"]
 
 [params]
 

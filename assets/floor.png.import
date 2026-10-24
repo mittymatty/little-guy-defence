@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deojfiamdref8"
-path="res://.godot/imported/box_9patch_hover.png-e3607b2367980b2e2cf609edcd8acf39.ctex"
+uid="uid://qjdxpoawdt2m"
+path="res://.godot/imported/floor.png-38406586736af2fe805d7b886727ee47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/box_9patch_hover.png"
-dest_files=["res://.godot/imported/box_9patch_hover.png-e3607b2367980b2e2cf609edcd8acf39.ctex"]
+source_file="res://assets/floor.png"
+dest_files=["res://.godot/imported/floor.png-38406586736af2fe805d7b886727ee47.ctex"]
 
 [params]
 

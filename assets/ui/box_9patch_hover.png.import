@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3yc434c1kxo8"
-path="res://.godot/imported/blocks.png-685c13156444a7a1452ea08f4bf9c1af.ctex"
+uid="uid://deojfiamdref8"
+path="res://.godot/imported/box_9patch_hover.png-f4c8928f8f33edf820edabfd2a263eb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blocks.png"
-dest_files=["res://.godot/imported/blocks.png-685c13156444a7a1452ea08f4bf9c1af.ctex"]
+source_file="res://assets/ui/box_9patch_hover.png"
+dest_files=["res://.godot/imported/box_9patch_hover.png-f4c8928f8f33edf820edabfd2a263eb2.ctex"]
 
 [params]
 

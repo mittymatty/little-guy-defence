@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://8t2fpodo36ne"]
 
 [ext_resource type="PackedScene" uid="uid://c60kihk36ttm5" path="res://scenes/enemies/enemy_base.tscn" id="1_5ychv"]
-[ext_resource type="Texture2D" uid="uid://c43h40g73nxtn" path="res://assets/monkey.png" id="2_4targ"]
 [ext_resource type="Script" uid="uid://cytk6cp1my5oo" path="res://scripts/monkey.gd" id="2_icn2m"]
+[ext_resource type="Texture2D" uid="uid://cwep2o78cjd02" path="res://assets/enemies/white monkey.png" id="3_icn2m"]
 [ext_resource type="PackedScene" uid="uid://ygux51qhvuoa" path="res://scenes/components/touch_damager_component.tscn" id="4_icn2m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_icn2m"]
@@ -19,7 +19,7 @@ sprite = NodePath("Visuals/Sprite")
 
 [node name="Sprite" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="0" unique_id=838308015]
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_4targ")
+texture = ExtResource("3_icn2m")
 
 [node name="EmptyAttackSound" type="AudioStreamPlayer2D" parent="Sounds" parent_id_path=PackedInt32Array(947285440) index="0" unique_id=1071886734]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c18tf3roqqinn"
-path="res://.godot/imported/red a.png-4f09fb378b1f6672c050cc70f9ce6264.ctex"
+uid="uid://c43h40g73nxtn"
+path="res://.godot/imported/monkey.png-627a9ec5f33501fb14bbba096a358b17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/red a.png"
-dest_files=["res://.godot/imported/red a.png-4f09fb378b1f6672c050cc70f9ce6264.ctex"]
+source_file="res://assets/enemies/monkey.png"
+dest_files=["res://.godot/imported/monkey.png-627a9ec5f33501fb14bbba096a358b17.ctex"]
 
 [params]
 

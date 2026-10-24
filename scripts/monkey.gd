@@ -6,8 +6,9 @@ extends Enemy
 @export var sprite: Node2D
 
 var colors: Array[Color] = [
-	Color("ffffff"), #Makes red
-	Color("00fefe") # Makes green
+	Color("ff0000"),
+	Color("0f68ffff"),
+	Color("d1bc00ff"),
 ]
 
 func _ready() -> void:

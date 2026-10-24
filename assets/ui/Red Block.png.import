@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co8xok6pc1nt0"
-path="res://.godot/imported/monkey barrel.png-9318c930f3252e19d6804a7a53742176.ctex"
+uid="uid://cba51mig1rfsn"
+path="res://.godot/imported/Red Block.png-b0756ab29c02b9b0aaffa6eefcd73108.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/monkey barrel.png"
-dest_files=["res://.godot/imported/monkey barrel.png-9318c930f3252e19d6804a7a53742176.ctex"]
+source_file="res://assets/ui/Red Block.png"
+dest_files=["res://.godot/imported/Red Block.png-b0756ab29c02b9b0aaffa6eefcd73108.ctex"]
 
 [params]
 

@@ -4,14 +4,14 @@
 [ext_resource type="FontFile" uid="uid://bh7q5xrw6mw0i" path="res://assets/fonts/YOSIA-SCRIBBLE-TIGHT.ttf" id="2_bma8u"]
 [ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/ui/health_bar.tscn" id="2_u001w"]
 [ext_resource type="PackedScene" uid="uid://bdmyssrhu4j55" path="res://scenes/ui/troop_button.tscn" id="4_fct72"]
-[ext_resource type="Texture2D" uid="uid://c3yc434c1kxo8" path="res://assets/blocks.png" id="4_qrkc0"]
-[ext_resource type="Texture2D" uid="uid://oks2sxp1t45s" path="res://assets/box_9patch.png" id="4_ru5ln"]
+[ext_resource type="Texture2D" uid="uid://c3yc434c1kxo8" path="res://assets/ui/blocks.png" id="4_qrkc0"]
+[ext_resource type="Texture2D" uid="uid://oks2sxp1t45s" path="res://assets/ui/box_9patch.png" id="4_ru5ln"]
 [ext_resource type="FontFile" uid="uid://dn1dl7h18dgue" path="res://assets/fonts/YOSIA-SCRIBBLE.ttf" id="6_opxtl"]
-[ext_resource type="Texture2D" uid="uid://gatfbwy2d0ov" path="res://assets/saluting soldier.png" id="6_v1bdg"]
+[ext_resource type="Texture2D" uid="uid://gatfbwy2d0ov" path="res://assets/saluting_soldier.png" id="6_v1bdg"]
 [ext_resource type="Resource" uid="uid://cnhk32lv3frjh" path="res://resources/pistol_trooper.tres" id="7_yvtb5"]
 [ext_resource type="Resource" uid="uid://bl28phk4lorh7" path="res://resources/shotgun_trooper.tres" id="8_k7elv"]
 [ext_resource type="Resource" uid="uid://ca6egkjw3vm77" path="res://resources/rifle_trooper.tres" id="9_fftnl"]
-[ext_resource type="Texture2D" uid="uid://c43h40g73nxtn" path="res://assets/monkey.png" id="10_bxde6"]
+[ext_resource type="Texture2D" uid="uid://c43h40g73nxtn" path="res://assets/enemies/monkey.png" id="10_bxde6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u001w"]
 font = ExtResource("2_bma8u")

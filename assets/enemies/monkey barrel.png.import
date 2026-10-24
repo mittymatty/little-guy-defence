@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpjg3utif8i0t"
-path="res://.godot/imported/Untitled_design__1_-removebg-preview.png-823d55777da6e80b89fdfdb8c35c9d74.ctex"
+uid="uid://co8xok6pc1nt0"
+path="res://.godot/imported/monkey barrel.png-07a7d789c1e33daa6f3ffc39c34f7012.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Untitled_design__1_-removebg-preview.png"
-dest_files=["res://.godot/imported/Untitled_design__1_-removebg-preview.png-823d55777da6e80b89fdfdb8c35c9d74.ctex"]
+source_file="res://assets/enemies/monkey barrel.png"
+dest_files=["res://.godot/imported/monkey barrel.png-07a7d789c1e33daa6f3ffc39c34f7012.ctex"]
 
 [params]
 

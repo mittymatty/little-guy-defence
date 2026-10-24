@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qjdxpoawdt2m"
-path="res://.godot/imported/Untitled_design__4_-removebg-preview.png-da24f9b1b4c8758d4e7f104076873ba7.ctex"
+uid="uid://da8yohu5i4tk8"
+path="res://.godot/imported/toy_soldier.png-179555cdf7921a953f2c45499f0ed111.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Untitled_design__4_-removebg-preview.png"
-dest_files=["res://.godot/imported/Untitled_design__4_-removebg-preview.png-da24f9b1b4c8758d4e7f104076873ba7.ctex"]
+source_file="res://assets/toy_soldier.png"
+dest_files=["res://.godot/imported/toy_soldier.png-179555cdf7921a953f2c45499f0ed111.ctex"]
 
 [params]
 

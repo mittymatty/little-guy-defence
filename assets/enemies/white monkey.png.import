@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwep2o78cjd02"
-path="res://.godot/imported/white monkey.png-a7e3835327ca54e2667a720a3fdfb0a6.ctex"
+path="res://.godot/imported/white monkey.png-af2da0385e9d9b7ec910c7670d2ab2e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/white monkey.png"
-dest_files=["res://.godot/imported/white monkey.png-a7e3835327ca54e2667a720a3fdfb0a6.ctex"]
+source_file="res://assets/enemies/white monkey.png"
+dest_files=["res://.godot/imported/white monkey.png-af2da0385e9d9b7ec910c7670d2ab2e6.ctex"]
 
 [params]
 
