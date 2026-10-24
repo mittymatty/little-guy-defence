@@ -65,7 +65,9 @@ nodes_to_flip = [NodePath("../../Visuals")]
 tracker = NodePath("../..")
 
 [node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body", "regen_delay_timer") instance=ExtResource("8_6jgr1")]
-knockback_multiplier = 0.0
+max_health = 60.0
+knockback_multiplier = 0.1
+i_time = true
 body = NodePath("../..")
 regen_delay_timer = NodePath("../../HealthRegenDelay")
 

@@ -4,6 +4,8 @@ var current_click_mode: CLICK_MODE = CLICK_MODE.PLACE
 var blocks: int = 10
 var stored_troops: Array[PackedScene] = []
 var curent_wave: int = 0
+var base_refresh_cost: int = 2
+var current_refresh_cost: int = 2
 
 var all_possible_troop_data: Array[TroopData] = [
 	preload("res://resources/pistol_trooper.tres"),

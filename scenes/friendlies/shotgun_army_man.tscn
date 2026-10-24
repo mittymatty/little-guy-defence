@@ -6,16 +6,15 @@
 [node name="ShotgunArmyMan" unique_id=365000319 instance=ExtResource("1_qjhh0")]
 
 [node name="GunComponent" parent="Components" parent_id_path=PackedInt32Array(15715907) index="2" unique_id=769225365]
-bullet_speed = 350.0
 max_ammo = 3
 bullets_per_shot = 4
 maximum_spread_angle = 0.5
 
-[node name="CooldownTimer" parent="Components/GunComponent" index="0" unique_id=406347045]
-wait_time = 1.0
-
 [node name="ReloadTimer" parent="Components/GunComponent" index="1" unique_id=343490544]
 wait_time = 2.0
+
+[node name="HealthComponent" parent="Components" parent_id_path=PackedInt32Array(15715907) index="5" unique_id=1130167078]
+max_health = 80.0
 
 [node name="Gun" parent="Visuals" parent_id_path=PackedInt32Array(1694800844) index="2" unique_id=510723242]
 texture = ExtResource("2_ho533")

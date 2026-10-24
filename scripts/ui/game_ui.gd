@@ -1,13 +1,19 @@
 extends Control
 @onready var player: Player = get_tree().get_first_node_in_group("player")
-@onready var health_bar: HealthBar = $Vitals/Left/HealthBar
 @onready var gun_component: GunComponent = player.gun_component
+
+@onready var health_bar: HealthBar = $Vitals/Left/HealthBar
+@onready var wave_count: Label = $Vitals/Middle/WaveCount
 @onready var blocks_count: Label = $Vitals/Middle/BlocksCount
 @onready var ammo_counter: Label = $Vitals/Right/AmmoCounter
+
 @onready var troop_select: MarginContainer = $TroopSelect
-@onready var continue_button: Button = $TroopSelect/VBoxContainer/ContinueButton
-@onready var wave_count: Label = $Vitals/Middle/WaveCount
 @onready var troop_button_container: HBoxContainer = $TroopSelect/VBoxContainer/MarginContainer/TroopButtonContainer
+
+@onready var refresh: Button = $TroopSelect/VBoxContainer/HBoxContainer/Refresh
+@onready var refresh_price: Label = $TroopSelect/VBoxContainer/HBoxContainer/Refresh/HBoxContainer/Price
+
+@onready var continue_button: Button = $TroopSelect/VBoxContainer/HBoxContainer/ContinueButton
 
 const TROOP_BUTTON = preload("uid://bdmyssrhu4j55")
 var trooper_buttons_at_a_time: int = 3
@@ -30,6 +36,8 @@ func on_blocks_changed () -> void:
 
 func open_troop_selector () -> void:
 	PlayerStatus.current_click_mode = PlayerStatus.CLICK_MODE.NONE
+	PlayerStatus.current_refresh_cost = PlayerStatus.base_refresh_cost
+	update_refresh_label()
 	create_troop_buttons()
 	troop_select.show()
 
@@ -40,12 +48,24 @@ func close_troop_selector () -> void:
 func on_wave_change () -> void:
 	wave_count.text = "Wave: " + str(PlayerStatus.curent_wave)
 
+func on_refreshed () -> void:
+	if PlayerStatus.blocks >= PlayerStatus.current_refresh_cost:
+		PlayerStatus.blocks -= PlayerStatus.current_refresh_cost
+		PlayerStatus.current_refresh_cost += 1
+		SignalBus.emit_blocks_changed()
+		update_refresh_label()
+		create_troop_buttons()
+
+func update_refresh_label () -> void:
+	refresh_price.text = str(PlayerStatus.current_refresh_cost)
+
 func _ready() -> void:
 	health_bar.body = player
 	on_ammo_changed()
 	on_blocks_changed()
 	open_troop_selector()
 	
+	refresh.pressed.connect(on_refreshed)
 	continue_button.pressed.connect(close_troop_selector)
 	SignalBus.blocks_changed.connect(on_blocks_changed)
 	gun_component.ammo_changed.connect(on_ammo_changed)

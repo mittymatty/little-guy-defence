@@ -152,6 +152,9 @@ bullet = ExtResource("7_d2wvv")
 gun_visuals = NodePath("../../Visuals/Gun")
 muzzle = NodePath("../../Visuals/Gun/Muzzle")
 
+[node name="ReloadTimer" parent="Components/GunComponent" index="1" unique_id=343490544]
+wait_time = 1.5
+
 [node name="HealthComponent" parent="Components" unique_id=1130167078 node_paths=PackedStringArray("body", "regen_delay_timer") instance=ExtResource("7_ur7pv")]
 i_time = true
 body = NodePath("../..")
@@ -179,3 +182,5 @@ libraries/ = SubResource("AnimationLibrary_jej6c")
 [node name="ReloadBar" parent="." unique_id=1286998321 node_paths=PackedStringArray("gun_component") instance=ExtResource("12_3v2ag")]
 visible = true
 gun_component = NodePath("../Components/GunComponent")
+
+[editable path="Components/GunComponent"]
