@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://8t2fpodo36ne"]
+
+[ext_resource type="PackedScene" uid="uid://c60kihk36ttm5" path="res://scenes/enemies/enemy_base.tscn" id="1_5ychv"]
+[ext_resource type="Texture2D" uid="uid://c43h40g73nxtn" path="res://assets/monkey.png" id="2_4targ"]
+[ext_resource type="Script" uid="uid://cytk6cp1my5oo" path="res://scripts/monkey.gd" id="2_icn2m"]
+[ext_resource type="PackedScene" uid="uid://ygux51qhvuoa" path="res://scenes/components/touch_damager_component.tscn" id="4_icn2m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_icn2m"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icn2m"]
+size = Vector2(17, 25)
+
+[node name="Monkey" unique_id=733239099 node_paths=PackedStringArray("touch_damager_component", "sprite") instance=ExtResource("1_5ychv")]
+script = ExtResource("2_icn2m")
+touch_damager_component = NodePath("Components/TouchDamagerComponent")
+sprite = NodePath("Visuals/Sprite")
+
+[node name="Sprite" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="0" unique_id=838308015]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_4targ")
+
+[node name="EmptyAttackSound" type="AudioStreamPlayer2D" parent="Sounds" parent_id_path=PackedInt32Array(947285440) index="0" unique_id=1071886734]
+
+[node name="HealthComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="0" unique_id=1130167078]
+max_health = 30.0
+
+[node name="JumpComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="4" unique_id=466440326]
+jump_velocity = -400.0
+
+[node name="TouchDamagerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="7" unique_id=934853369 node_paths=PackedStringArray("hazard_owner", "attack_box", "attack_sound") instance=ExtResource("4_icn2m")]
+hazard_owner = NodePath("../..")
+attack_box = NodePath("../../TouchDamageBox")
+attack_sound = NodePath("../../Sounds/EmptyAttackSound")
+
+[node name="HealthBar" parent="." index="3" unique_id=1492475502]
+offset_top = -13.0
+offset_bottom = -11.0
+
+[node name="Collision" parent="." index="4" unique_id=1302760824]
+visible = false
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_icn2m")
+
+[node name="JumpTrigger" parent="Raycasts" parent_id_path=PackedInt32Array(840407662) index="0" unique_id=1431579325]
+collision_mask = 5
+
+[node name="TouchDamageBox" type="Area2D" parent="." index="6" unique_id=2033027120]
+visible = false
+collision_layer = 0
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamageBox" index="0" unique_id=832251094]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_icn2m")

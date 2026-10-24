@@ -3,9 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://da8yohu5i4tk8" path="res://assets/toy soldier.png" id="1_7jjua"]
 [ext_resource type="Script" uid="uid://cky2snomvdd6e" path="res://scripts/placement_cursor.gd" id="1_ai2in"]
 [ext_resource type="Texture2D" uid="uid://isi48lc8g4ou" path="res://assets/front soldier.png" id="2_ai2in"]
+[ext_resource type="FontFile" uid="uid://bh7q5xrw6mw0i" path="res://assets/fonts/YOSIA-SCRIBBLE-TIGHT.ttf" id="4_ihoqm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
 radius = 14.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_hy6xw"]
+font = ExtResource("4_ihoqm")
+font_size = 100
+outline_size = 1
 
 [node name="PlacementCursor" type="Marker2D" unique_id=1614709603]
 z_index = 5
@@ -40,3 +46,27 @@ collision_mask = 39
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Invalidator" unique_id=1662206432]
 position = Vector2(0, -17)
 shape = SubResource("CircleShape2D_xrivr")
+
+[node name="ShowBeforeFirstPlacement" type="Control" parent="." unique_id=1507503969]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Instructions" type="Label" parent="ShowBeforeFirstPlacement" unique_id=877594429]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.00001
+offset_top = 6.000002
+offset_right = 653.0
+offset_bottom = 209.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "Click to place"
+label_settings = SubResource("LabelSettings_hy6xw")
+horizontal_alignment = 1

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdmyssrhu4j55" path="res://scenes/ui/troop_button.tscn" id="4_fct72"]
 [ext_resource type="Texture2D" uid="uid://c3yc434c1kxo8" path="res://assets/blocks.png" id="4_qrkc0"]
 [ext_resource type="Texture2D" uid="uid://oks2sxp1t45s" path="res://assets/box_9patch.png" id="4_ru5ln"]
+[ext_resource type="FontFile" uid="uid://dn1dl7h18dgue" path="res://assets/fonts/YOSIA-SCRIBBLE.ttf" id="6_opxtl"]
 [ext_resource type="Texture2D" uid="uid://gatfbwy2d0ov" path="res://assets/saluting soldier.png" id="6_v1bdg"]
 [ext_resource type="Resource" uid="uid://cnhk32lv3frjh" path="res://resources/pistol_trooper.tres" id="7_yvtb5"]
 [ext_resource type="Resource" uid="uid://bl28phk4lorh7" path="res://resources/shotgun_trooper.tres" id="8_k7elv"]
@@ -20,9 +21,23 @@ font_size = 30
 font = ExtResource("2_bma8u")
 font_size = 40
 
+[sub_resource type="LabelSettings" id="LabelSettings_cgqta"]
+font = ExtResource("6_opxtl")
+font_size = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_opxtl"]
 font = ExtResource("2_bma8u")
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_hy6xw"]
+font = ExtResource("2_bma8u")
+font_size = 60
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxde6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opxtl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crnce"]
 
 [node name="Game UI" type="Control" unique_id=1426189323]
 layout_mode = 3
@@ -121,7 +136,15 @@ patch_margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TroopSelect" unique_id=822227203]
 layout_mode = 2
-theme_override_constants/separation = 45
+theme_override_constants/separation = 37
+
+[node name="Label" type="Label" parent="TroopSelect/VBoxContainer" unique_id=42500729]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 15)
+text = "PURCHASE REINFORCEMENTS:"
+label_settings = SubResource("LabelSettings_cgqta")
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TroopSelect/VBoxContainer" unique_id=1333040551]
 layout_mode = 2
@@ -208,3 +231,64 @@ icon = ExtResource("6_v1bdg")
 [node name="Panel" type="Panel" parent="TroopSelect/VBoxContainer" unique_id=499845798]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=950604301]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over..."
+label_settings = SubResource("LabelSettings_hy6xw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinLabel" type="Label" parent="." unique_id=955396560]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You have successfully 
+defended the dollar!
+YOU WIN!"
+label_settings = SubResource("LabelSettings_hy6xw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveClearedLabel" type="Label" parent="." unique_id=937198969]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Wave Cleared!!"
+label_settings = SubResource("LabelSettings_hy6xw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveClearedContinue" type="Button" parent="WaveClearedLabel" unique_id=462239084]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 25.0
+offset_right = 65.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_bma8u")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bxde6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_opxtl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_crnce")
+text = "(Click Here to Continue)"

@@ -1,9 +1,10 @@
 extends Node
 enum CLICK_MODE {NONE,SHOOT,PLACE}
-enum GAME_STATUS {WAVE,PEACE}
+enum GAME_STATUS {WAVE,PEACE,OVER}
 var current_click_mode: CLICK_MODE = CLICK_MODE.PLACE
+var current_game_status: GAME_STATUS = GAME_STATUS.PEACE
 
-var blocks: int = 10
+var blocks: int = 4
 var stored_troops: Array[PackedScene] = []
 
 var current_wave: int = 0
@@ -12,6 +13,7 @@ var base_refresh_cost: int = 2
 var current_refresh_cost: int = 2
 
 var active_enemies: int = 0
+
 
 var all_possible_troop_data: Array[TroopData] = [
 	preload("res://resources/pistol_trooper.tres"),

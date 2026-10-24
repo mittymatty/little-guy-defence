@@ -38,5 +38,4 @@ func _physics_process(delta: float) -> void:
 	movement_component.handle_horizontal_movement(self,tracker_component.movement_horizontal)
 	jump_component.handle_jump(self,jump_detector_component.check_if_should_jump() or should_jump)
 	animation_component.handle_horizontal_flip(velocity.x,false)
-	
 	move_and_slide()

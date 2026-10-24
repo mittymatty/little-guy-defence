@@ -15,6 +15,11 @@ extends Control
 
 @onready var continue_button: Button = $TroopSelect/VBoxContainer/HBoxContainer/ContinueButton
 
+@onready var wave_cleared_label: Label = $WaveClearedLabel
+@onready var wave_cleared_continue: Button = $WaveClearedLabel/WaveClearedContinue
+@onready var win_label: Label = $WinLabel
+@onready var game_over_label: Label = $GameOverLabel
+
 const TROOP_BUTTON = preload("uid://bdmyssrhu4j55")
 var trooper_buttons_at_a_time: int = 3
 
@@ -42,8 +47,12 @@ func open_troop_selector () -> void:
 	troop_select.show()
 
 func close_troop_selector () -> void:
-	PlayerStatus.current_click_mode = PlayerStatus.CLICK_MODE.PLACE
+	var enter_placing_mode: bool = PlayerStatus.stored_troops.size() != 0
+	PlayerStatus.current_click_mode = PlayerStatus.CLICK_MODE.PLACE if enter_placing_mode else PlayerStatus.CLICK_MODE.SHOOT
 	troop_select.hide()
+	
+	if !enter_placing_mode:
+		SignalBus.emit_setup_wave()
 
 func on_wave_change () -> void:
 	wave_count.text = "Wave: " + str(PlayerStatus.current_wave)
@@ -59,14 +68,32 @@ func on_refreshed () -> void:
 func update_refresh_label () -> void:
 	refresh_price.text = str(PlayerStatus.current_refresh_cost)
 
+func on_wave_cleared () -> void:
+	wave_cleared_label.show()
+	PlayerStatus.current_click_mode = PlayerStatus.CLICK_MODE.NONE
+	await wave_cleared_continue.pressed
+	wave_cleared_label.hide()
+	open_troop_selector()
+
+func on_game_won () -> void:
+	wave_cleared_label.hide()
+	win_label.show()
+	PlayerStatus.current_click_mode = PlayerStatus.CLICK_MODE.NONE
+
 func _ready() -> void:
 	health_bar.body = player
 	on_ammo_changed()
 	on_blocks_changed()
-	open_troop_selector()
+	
+	if PlayerStatus.blocks > 0:
+		open_troop_selector()
+	else:
+		SignalBus.emit_setup_wave()
 	
 	refresh.pressed.connect(on_refreshed)
 	continue_button.pressed.connect(close_troop_selector)
 	SignalBus.blocks_changed.connect(on_blocks_changed)
 	gun_component.ammo_changed.connect(on_ammo_changed)
+	SignalBus.game_won.connect(on_game_won)
 	SignalBus.begin_wave.connect(on_wave_change)
+	SignalBus.wave_ended.connect(on_wave_cleared)

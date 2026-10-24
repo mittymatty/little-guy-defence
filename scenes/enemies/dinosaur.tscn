@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b3anqa6k5sx3w"]
+
+[ext_resource type="PackedScene" uid="uid://c60kihk36ttm5" path="res://scenes/enemies/enemy_base.tscn" id="1_m8748"]
+[ext_resource type="Script" uid="uid://d2bhalw25axvp" path="res://scripts/touch_damage_enemy.gd" id="2_jsl0y"]
+[ext_resource type="Texture2D" uid="uid://b7u2bsdmlx3th" path="res://assets/dinasaur.png" id="2_tj4sg"]
+[ext_resource type="PackedScene" uid="uid://ygux51qhvuoa" path="res://scenes/components/touch_damager_component.tscn" id="4_jsl0y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hy6xw"]
+radius = 25.0
+height = 78.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgqta"]
+radius = 23.0
+height = 87.0
+
+[node name="EnemyBase" unique_id=733239099 node_paths=PackedStringArray("touch_damager_component") instance=ExtResource("1_m8748")]
+script = ExtResource("2_jsl0y")
+touch_damager_component = NodePath("Components/TouchDamagerComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(434325312) index="0" unique_id=628321832]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_tj4sg")
+
+[node name="EmptyAttackSound" type="AudioStreamPlayer2D" parent="Sounds" parent_id_path=PackedInt32Array(947285440) index="0" unique_id=889926079]
+
+[node name="HealthComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="0" unique_id=1130167078]
+max_health = 250.0
+knockback_multiplier = 0.5
+
+[node name="MovementComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="1" unique_id=275666189]
+speed = 40.0
+
+[node name="GravityComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="3" unique_id=827299611]
+gravity = 700.0
+
+[node name="JumpComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="4" unique_id=466440326]
+jump_velocity = -300.0
+
+[node name="TouchDamagerComponent" parent="Components" parent_id_path=PackedInt32Array(887696548) index="7" unique_id=934853369 node_paths=PackedStringArray("hazard_owner", "attack_box", "attack_sound") instance=ExtResource("4_jsl0y")]
+damage = 20.0
+knockback = Vector2(200, -50)
+hazard_owner = NodePath("../..")
+attack_box = NodePath("../../TouchDamager")
+attack_sound = NodePath("../../Sounds/EmptyAttackSound")
+
+[node name="CooldownTimer" parent="Components/TouchDamagerComponent" index="0" unique_id=1788332149]
+wait_time = 1.0
+
+[node name="HealthBar" parent="." index="3" unique_id=1492475502]
+offset_left = -18.0
+offset_top = -35.0
+offset_right = 18.0
+offset_bottom = -31.0
+
+[node name="Collision" parent="." index="4" unique_id=1302760824]
+position = Vector2(3, 8)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hy6xw")
+
+[node name="TouchDamager" type="Area2D" parent="." index="6" unique_id=1338341270]
+collision_layer = 0
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamager" index="0" unique_id=446724095]
+position = Vector2(11, 6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_cgqta")
+
+[editable path="Components/TouchDamagerComponent"]

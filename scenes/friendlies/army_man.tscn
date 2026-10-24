@@ -48,7 +48,7 @@ one_shot = true
 bullet = ExtResource("5_egd3g")
 gun_visuals = NodePath("../../Visuals/Gun")
 muzzle = NodePath("../../Visuals/Gun/Muzzle")
-bullet_damage = 8.0
+bullet_damage = 6.0
 bullet_speed = 350.0
 max_ammo = 5
 

@@ -6,6 +6,9 @@ class_name PlacementCursor extends Marker2D
 @onready var invalidator: Area2D = $Invalidator
 @onready var roof_check: RayCast2D = $RoofCheck
 
+@onready var show_before_first_placement: Control = $ShowBeforeFirstPlacement
+@onready var instructions: Label = $ShowBeforeFirstPlacement/Instructions
+
 func check_can_place () -> bool:
 	if invalidator.get_overlapping_bodies().size() > 0 or !validator.is_colliding() or roof_check.is_colliding():
 		return false
@@ -19,9 +22,11 @@ func place_troop () -> void:
 	get_tree().root.add_child.call_deferred(placed_troop,true)
 	if !Settings.expend_troops: return
 	PlayerStatus.stored_troops.pop_front()
-	
+	check_and_signal_setup()
+
+func check_and_signal_setup () -> void:
 	if PlayerStatus.stored_troops.size() <= 0:
-		SignalBus.emit_begin_wave()
+		SignalBus.emit_setup_wave()
 		return
 
 func handle_placement (wants_to_place: bool) -> void:
@@ -30,7 +35,9 @@ func handle_placement (wants_to_place: bool) -> void:
 	
 	sprite_invalid.visible = !can_place
 	sprite_valid.visible = can_place
+	instructions.visible = can_place
 	
 	if can_place and wants_to_place:
 		place_troop()
+		show_before_first_placement.hide()
 	
