@@ -11,6 +11,7 @@ var current_wave: int = 0
 
 var base_refresh_cost: int = 2
 var current_refresh_cost: int = 2
+var has_used_free_refresh: int = false
 
 var active_enemies: int = 0
 

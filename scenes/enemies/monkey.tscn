@@ -10,7 +10,7 @@ radius = 6.0
 height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icn2m"]
-size = Vector2(17, 25)
+size = Vector2(17, 17)
 
 [node name="Monkey" unique_id=733239099 node_paths=PackedStringArray("touch_damager_component", "sprite") instance=ExtResource("1_5ychv")]
 script = ExtResource("2_icn2m")
@@ -39,7 +39,6 @@ offset_top = -13.0
 offset_bottom = -11.0
 
 [node name="Collision" parent="." index="4" unique_id=1302760824]
-visible = false
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_icn2m")
 
@@ -47,10 +46,9 @@ shape = SubResource("CapsuleShape2D_icn2m")
 collision_mask = 5
 
 [node name="TouchDamageBox" type="Area2D" parent="." index="6" unique_id=2033027120]
-visible = false
 collision_layer = 0
 collision_mask = 66
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamageBox" index="0" unique_id=832251094]
-position = Vector2(-0.5, 3.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_icn2m")
