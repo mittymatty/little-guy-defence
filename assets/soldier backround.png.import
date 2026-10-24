@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnv7pns7hvbp"
-path="res://.godot/imported/MITTYGUMPY-ezgif.com-gif-to-sprite-converter.png-ba2f6bba7243c5e4cd9afb2b4c871459.ctex"
+uid="uid://bwf2cvuh5n1m2"
+path="res://.godot/imported/soldier backround.png-0e443936b8817101bdcfe2a358bfdeee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MITTYGUMPY-ezgif.com-gif-to-sprite-converter.png"
-dest_files=["res://.godot/imported/MITTYGUMPY-ezgif.com-gif-to-sprite-converter.png-ba2f6bba7243c5e4cd9afb2b4c871459.ctex"]
+source_file="res://assets/soldier backround.png"
+dest_files=["res://.godot/imported/soldier backround.png-0e443936b8817101bdcfe2a358bfdeee.ctex"]
 
 [params]
 

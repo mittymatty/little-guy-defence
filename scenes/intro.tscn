@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btolf7fiwoxk1"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+[ext_resource type="Texture2D" uid="uid://dvid5ncgrbs3" path="res://assets/MITTY & GUMPY.jpg" id="1_ioskq"]
+[ext_resource type="Script" uid="uid://c04qlsvvt14s0" path="res://scenes/color_rect_2.gd" id="1_yjqpq"]
 
 [node name="Control" type="Control" unique_id=1028439312]
 layout_mode = 3
@@ -10,5 +11,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=210634576]
-sprite_frames = SubResource("SpriteFrames_1vivr")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=689130022]
+layout_mode = 0
+offset_left = -1298.0
+offset_top = -878.0
+offset_right = 2578.0
+offset_bottom = 1542.0
+color = Color(0, 0, 0, 1)
+
+[node name="Mitty&Gumpy" type="Sprite2D" parent="." unique_id=1708638837]
+position = Vector2(578.5555, 323)
+scale = Vector2(0.6240741, 0.6240741)
+texture = ExtResource("1_ioskq")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=317834866]
+layout_mode = 0
+offset_left = -1298.0
+offset_top = -878.0
+offset_right = 2578.0
+offset_bottom = 1542.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_yjqpq")

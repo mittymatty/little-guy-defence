@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shelftop Warfare"
-run/main_scene="uid://dwoarnchrrpbi"
+run/main_scene="uid://btolf7fiwoxk1"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://isi48lc8g4ou"
 

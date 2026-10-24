@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://u7hmdgo8i1mm"]
+
+[ext_resource type="Texture2D" uid="uid://ckuge1jmo5w1l" path="res://assets/button cardboard.png" id="1_i0olq"]
+
+[resource]
+texture = ExtResource("1_i0olq")
+expand_margin_bottom = 48.0
