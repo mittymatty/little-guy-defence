@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drxiayebo8v1s" path="res://scripts/ui/game_ui.gd" id="1_u001w"]
 [ext_resource type="FontFile" uid="uid://bh7q5xrw6mw0i" path="res://assets/fonts/YOSIA-SCRIBBLE-TIGHT.ttf" id="2_bma8u"]
+[ext_resource type="Texture2D" uid="uid://ckuge1jmo5w1l" path="res://assets/button cardboard.png" id="2_crnce"]
 [ext_resource type="PackedScene" uid="uid://cxycyknysydd1" path="res://scenes/ui/health_bar.tscn" id="2_u001w"]
 [ext_resource type="PackedScene" uid="uid://bdmyssrhu4j55" path="res://scenes/ui/troop_button.tscn" id="4_fct72"]
 [ext_resource type="Texture2D" uid="uid://c3yc434c1kxo8" path="res://assets/ui/blocks.png" id="4_qrkc0"]
@@ -16,10 +17,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_u001w"]
 font = ExtResource("2_bma8u")
 font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yvtb5"]
 font = ExtResource("2_bma8u")
 font_size = 40
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cgqta"]
 font = ExtResource("6_opxtl")
@@ -47,6 +50,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u001w")
+
+[node name="ButtonCardboard3" type="Sprite2D" parent="." unique_id=135776912]
+position = Vector2(122.25, 72)
+scale = Vector2(1.4766667, 1)
+texture = ExtResource("2_crnce")
+
+[node name="ButtonCardboard2" type="Sprite2D" parent="." unique_id=884438680]
+position = Vector2(1025, 79)
+scale = Vector2(1.4933333, 1)
+texture = ExtResource("2_crnce")
+
+[node name="ButtonCardboard" type="Sprite2D" parent="." unique_id=1530521629]
+position = Vector2(583, 80)
+scale = Vector2(2.8533332, 1)
+texture = ExtResource("2_crnce")
 
 [node name="Vitals" type="MarginContainer" parent="." unique_id=498502098]
 layout_mode = 1
