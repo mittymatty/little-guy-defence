@@ -55,6 +55,7 @@ func close_troop_selector () -> void:
 		SignalBus.emit_setup_wave()
 
 func on_wave_change () -> void:
+	wave_count.show()
 	wave_count.text = "Wave: " + str(PlayerStatus.current_wave)
 
 func on_refreshed () -> void:

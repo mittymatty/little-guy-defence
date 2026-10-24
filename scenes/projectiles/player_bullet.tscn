@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1quce5hayvtl" path="res://assets/bullet.png" id="2_tx1o0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_46jqs"]
-radius = 1.5
+radius = 1.75
 height = 11.0
 
 [node name="Player_Bullet" type="Area2D" unique_id=2109893616]
@@ -13,8 +13,9 @@ collision_mask = 5
 script = ExtResource("1_6ppsv")
 
 [node name="Visuals" type="Sprite2D" parent="." unique_id=1241507613]
+position = Vector2(0.99999994, 0.99999994)
 rotation = 0.008984804
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_tx1o0")
 
 [node name="LifeTimer" type="Timer" parent="." unique_id=765117176]
@@ -23,7 +24,6 @@ one_shot = true
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1444561498]
-position = Vector2(-2, -0.75)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_46jqs")
 
